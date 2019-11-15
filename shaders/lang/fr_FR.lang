@@ -1,0 +1,88 @@
+﻿
+screen.main
+  option.OFOG=brouillard monde normal
+    option.OFOGI=Intensité du brouillard
+      value.OFOGI.0.1=1
+      value.OFOGI.0.2=2
+      value.OFOGI.0.3=3
+      value.OFOGI.0.4=4
+      value.OFOGI.0.5=5
+      value.OFOGI.0.6=6
+      value.OFOGI.0.7=7
+      value.OFOGI.0.8=8
+      value.OFOGI.0.9=9
+      value.OFOGI.1.0=10
+
+  option.NFOG=brouillard Nether
+    option.NFOGI=Intensité du brouillard
+      value.NFOGI.0.1=1
+      value.NFOGI.0.2=2
+      value.NFOGI.0.3=3
+      value.NFOGI.0.4=4
+      value.NFOGI.0.5=5
+      value.NFOGI.0.6=6
+      value.NFOGI.0.7=7
+      value.NFOGI.0.8=8
+      value.NFOGI.0.9=9
+      value.NFOGI.1.0=10
+
+  option.EFOG=brouillard de l'End
+    option.EFOGI=Intensité du brouillard
+    option.EFOGI.comment=Intensité du brouillard. Augmenter rend plus dense.
+      value.EFOGI.0.1=1
+      value.EFOGI.0.2=2
+      value.EFOGI.0.3=3
+      value.EFOGI.0.4=4
+      value.EFOGI.0.5=5
+      value.EFOGI.0.6=6
+      value.EFOGI.0.7=7
+      value.EFOGI.0.8=8
+      value.EFOGI.0.9=9
+      value.EFOGI.1.0=10
+
+option.CELSHADING=Celshading
+
+screen.water
+
+  option.CWATER=Eau custom
+
+  option.AWATER=Transparence de l'eau
+  option.AWATER.comment=Transparence de l'eau, augmenter rend moins opaque.
+      value.AWATER.200.0f=1
+      value.AWATER.205.0f=2
+      value.AWATER.210.0f=3
+      value.AWATER.215.0f=4
+      value.AWATER.220.0f=5
+      value.AWATER.225.0f=6
+      value.AWATER.230.0f=default
+
+    option.RWATER=Red
+    option.GWATER=Green
+    option.BWATER=Blue
+
+
+
+  screen.DOF_SCREEN=Profondeur de champ
+    screen.DOF_SCREEN.comment=Change things related to Depth of Field. Thanks to Sildur for base DOF.
+
+    option.Depth_of_Field=Profondeur de champ
+      option.Depth_of_Field.comment=Simule le focus de l'oeil sur des objets. §6Peu d'impact sur les perfs.
+      option.DoF_Strength=Puissance de l'effet de profondeur de champ
+      option.DoF_Strength.comment=Change la puissance de l'effet de flou.
+      value.DoF_Strength.60=bas
+      value.DoF_Strength.90=défaut
+      value.DoF_Strength.120=haut
+      value.DoF_Strength.150=très haut
+
+    option.Distance_Blur=Flou de distance
+      option.Distance_Blur.comment=§4Nécessite que la profondeur de champ soit activée. §6Gros impact sur les perfs. Remplace l'effet de focus des yeux par un effet de flou sur les plans de l'image.
+
+    option.Dof_Distance_View=Distance de vue du flou.
+      option.Dof_Distance_View.comment=Ajuste la distance de vue du flou.
+      value.Dof_Distance_View.128=proche
+      value.Dof_Distance_View.256=défaut
+      value.Dof_Distance_View.384=loin
+      value.Dof_Distance_View.512=très loin
+
+      option.HEXBOKEH=bokeh hexagonal
+        option.HEXBOKEH.comment= §6Impact faible sur les perfs. Hex bokeh stolen from RRe36 who stole from choc, with permission.

@@ -1,0 +1,124 @@
+
+screen.main
+
+screen.fog
+  option.OFOG=Aangepaste Overworld Mist
+  option.OFOG.comment=Alpha en Intensiteit blijven toegepast wanneer uitgeschakeld.
+    option.OFOGI=Mist Intensiteit
+    option.OFOGI.comment=Mist Intensiteit. Hoger is dichter.
+      option.OFOGR=Rood
+      option.OFOGG=Groen
+      option.OFOGB=Blauw
+      option.OFOGA=Alpha
+
+  option.NFOG=Nether Mist
+    option.NFOGI=Mist Intensiteit
+    option.NFOGI.comment=Mist Intensiteit. Hoger is dichter.
+      option.NFOGR=Rood
+      option.NFOGG=Groen
+      option.NFOGB=Blauw
+      option.NFOGA=Alpha
+
+  option.EFOG=Ender Mist
+    option.EFOGI=Mist Intensiteit
+    option.EFOGI.comment=Mist Intensiteit. Hoger is dichter.
+    option.EFOGR=Rood
+    option.EFOGG=Groen
+    option.EFOGB=Blauw
+    option.EFOGA=Alpha
+
+screen.Waving_Foliage=Golvend Gebladerte
+  option.WAVING_GRASS=Golvend Gras 
+	# this was waving foliage but i changed it to waving grass (gebladerte == foliage)
+  option.WAVING_LEAVES=Golvende Blaadjes
+   option.WSPEED=Windsnelheid
+    #value.WSPEED.0.25=1
+    #value.WSPEED.0.3=2
+    #value.WSPEED.0.35=3
+    value.WSPEED.0.40=Standaard
+    #value.WSPEED.0.45=4
+    #value.WSPEED.0.5=5
+    #value.WSPEED.0.55=6
+    #value.WSPEED.0.6=7
+    #value.WSPEED.0.65=8
+    #value.WSPEED.0.7=9
+    #value.WSPEED.0.75=10
+
+option.CELSHADING=Celschakering
+
+screen.water
+
+  option.CWATER=Aangepast water
+
+  option.AWATER=Water Alpha
+  option.AWATER.comment=Doorschijnbaarheid van het water, hoger is doorzichtiger.
+      value.AWATER.200.0f=1
+      value.AWATER.205.0f=2
+      value.AWATER.210.0f=3
+      value.AWATER.215.0f=4
+      value.AWATER.220.0f=5
+      value.AWATER.225.0f=6
+      value.AWATER.230.0f=Standaard
+
+    option.RWATER=Rood
+    option.GWATER=Groen
+    option.BWATER=Blauw
+
+option.CustomUWF=Onderwater Mist
+    option.UWFR=Rood
+    option.UWFG=Groen
+    option.UWFB=Blauw
+    option.UWFA=Alpha
+    option.UWFI=Intensiteit
+
+
+  screen.DOF_SCREEN=Dieptezicht
+    screen.DOF_SCREEN.comment=Verander dingen gerelateerd met het dieptezicht. Bedankt Sildur voor de basis van het dieptezicht.
+
+    option.Depth_of_Field=Dieptezicht
+      option.Depth_of_Field.comment=Simuleert het aandacht geven aan objecten §6Zorgt voor slechtere prestaties
+      option.DoF_Strength=Dieptezicht sterkte
+      option.DoF_Strength.comment=Veranderd de sterkte van de vervaging
+      value.DoF_Strength.60=Laag
+      value.DoF_Strength.90=Standaard
+      value.DoF_Strength.120=Hoog
+      value.DoF_Strength.150=Heel hoog
+
+    option.Distance_Blur=Afstandsvervaging
+      option.Distance_Blur.comment=§4Vereist dieptezicht om ingeschakeld te zijn. §6Zorgt voor slechtere prestaties. Vervangt het aandachteffect met de afstand die word verdoezeld.
+
+    option.Dof_Distance_View=Dieptezicht van de verdoezeling
+      option.Dof_Distance_View.comment=Verander het dieptezicht van de verdoezeling.
+      value.Dof_Distance_View.128=Dicht
+      value.Dof_Distance_View.256=Standaard
+      value.Dof_Distance_View.384=Ver
+      value.Dof_Distance_View.512=Heel ver
+
+      option.HEXBOKEH=Hex bokeh
+        option.HEXBOKEH.comment= §6low performance impact. Hex bokeh stolen from RRe36 who stole from choc, with permission.
+
+
+    screen.Custom_box=Custom Box
+      option.CSBOX.comment=Customize the color of your block selection box. Enabling will also change leads to the selected color Sadly this is unavoidable.
+	  option.CSBOX=Toggle
+           option.CSR=Rood
+            option.CSG=Groen
+             option.CSB=Blauw
+
+    option.AOAmount=AO Sterkte
+
+    option.TONEMAP=Tonemap
+      value.TONEMAP.1=Vanilla
+      value.TONEMAP.2=BOTW
+      value.TONEMAP.3=Black and White
+      value.TONEMAP.4=Vibrant
+      value.TONEMAP.5=Negative
+      value.TONEMAP.6=Spoopy
+      value.TONEMAP.7=BSL
+
+    option.About=BSL is
+      value.About.0=Veranderlijke instelling
+
+    option.kernel_type=kernel
+      value.kernel_type.0=Vanilla
+    

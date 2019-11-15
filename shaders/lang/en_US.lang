@@ -1,0 +1,180 @@
+
+screen.main
+
+screen.fog
+  option.OFOG=Custom Overworld fog
+  option.LBOFOG=Land Based
+  option.OFOG.comment=Alpha and Intensity still apply when disabled.
+    option.OFOGI=Fog Intesity
+    option.OFOGI.comment=Fog Intesity. Higher is denser.
+      option.OFOGR=Red
+      option.OFOGG=Green
+      option.OFOGB=Blue
+      option.OFOGA=Alpha
+      option.TranslucentFogFix=Translucent Fix
+    
+    option.SWAMPFOG=Swamp Effect
+
+  option.NFOG=Nether fog
+    option.NFOGI=Fog Intesity
+    option.NFOGI.comment=Fog Intesity. Higher is denser.
+      option.NFOGR=Red
+      option.NFOGG=Green
+      option.NFOGB=Blue
+      option.NFOGA=Alpha
+
+  option.EFOG=Ender fog
+    option.EFOGI=Fog Intesity
+    option.EFOGI.comment=Fog Intesity. Higher is denser.
+    option.EFOGR=Red
+    option.EFOGG=Green
+    option.EFOGB=Blue
+    option.EFOGA=Alpha
+
+screen.Waving_Foliage=Waving Foliage
+  option.WAVING_GRASS=Waving Foliage
+  option.WAVING_LEAVES=Waving Leaves
+   option.WSPEED=Wind Speed
+    #value.WSPEED.0.25=1
+    #value.WSPEED.0.3=2
+    #value.WSPEED.0.35=3
+    value.WSPEED.0.40=Default
+    #value.WSPEED.0.45=4
+    #value.WSPEED.0.5=5
+    #value.WSPEED.0.55=6
+    #value.WSPEED.0.6=7
+    #value.WSPEED.0.65=8
+    #value.WSPEED.0.7=9
+    #value.WSPEED.0.75=10
+
+
+option.CELSHADING=Celshading
+
+screen.water
+
+  option.CWATER=Custom Water
+    value.CWATER.0=Off
+    value.CWATER.1=Textured + Biome
+    value.CWATER.2=Textured
+    value.CWATER.3=No texture
+
+
+  option.AWATER=Water Alpha
+  option.AWATER.comment=Translucency of the water, higher is less opaque.
+      value.AWATER.200.0f=1
+      value.AWATER.205.0f=2
+      value.AWATER.210.0f=3
+      value.AWATER.215.0f=4
+      value.AWATER.220.0f=5
+      value.AWATER.225.0f=6
+      value.AWATER.230.0f=default
+
+    option.RWATER=Red
+    option.GWATER=Green
+    option.BWATER=Blue
+
+option.CustomUWF=Underwater Fog
+    option.UWFR=Red
+    option.UWFG=Green
+    option.UWFB=Blue
+    option.UWFA=Alpha
+    option.UWFI=Intensity
+
+
+  screen.DOF_SCREEN=Depth of field
+    screen.DOF_SCREEN.comment=Change things related to Depth of Field. Thanks to Sildur for base DOF.
+
+    option.Depth_of_Field=Depth of Field
+      option.Depth_of_Field.comment=Simulates eye focusing on objects. §6Low performance impact
+      option.DoF_Strength=Dof strength
+      option.DoF_Strength.comment=Changes the strength of the blurring effect.
+      value.DoF_Strength.60=Low
+      value.DoF_Strength.90=Default
+      value.DoF_Strength.120=High
+      value.DoF_Strength.150=Very High
+
+    option.Distance_Blur=Distance Blur
+      option.Distance_Blur.comment=§4Requires Depth of Field to be enabled. §6High performance impact. Replaces eye focusing effect with distance being blurred instead.
+
+    option.Dof_Distance_View=Blur view distance
+      option.Dof_Distance_View.comment=Adjust the view distance of blur.
+      value.Dof_Distance_View.128=Near
+      value.Dof_Distance_View.256=Default
+      value.Dof_Distance_View.384=Far
+      value.Dof_Distance_View.512=Very Far
+
+      option.HEXBOKEH=Hex bokeh
+        option.HEXBOKEH.comment= §6low performance impact. Hex bokeh stolen from RRe36 who stole from choc, with permission.
+
+
+    screen.Custom_box=Custom Box
+      option.CSBOX.comment=Customize the color of your block selection box. Enabling will also change leads to the selected color Sadly this is unavoidable.
+          option.CSBOX=Toggle
+           option.CSR=Red
+            option.CSG=Green
+             option.CSB=Blue
+
+    option.AOAmount=AO Strength
+      option.AOSamples=AO Samples
+        option.AOSamples.comment=Higher sample numbers increase the SSAO quality but decreases fps.
+
+    option.TONEMAP=Tonemap
+      value.TONEMAP.1=Vanilla
+      value.TONEMAP.2=BOTW
+      value.TONEMAP.3=Black and White
+      value.TONEMAP.4=Vibrant
+      value.TONEMAP.5=Negative
+      value.TONEMAP.6=Spoopy
+      value.TONEMAP.7=BSL
+
+    option.About=BSL is
+      value.About.0= Customizable Preset
+
+    option.kernel_type=kernel 
+      value.kernel_type.0=Vanilla
+
+    option.MOTIONBLUR=Motion Blur
+
+    option.NightDarknessLevel=Night Darkness
+      value.NightDarknessLevel.6=Darkest
+      value.NightDarknessLevel.0=Vanilla
+
+    option.NBrightness=Nether Brightness
+      value.NBrightness.1.00=Vanilla
+
+    option.EBrightness=End Brightness
+      value.EBrightness.1.00=Vanilla
+
+    option.FGrain=Film Grain
+
+    option.CClouds=Custom Cloud Colors
+      option.CloudsR=Red
+      option.CloudsG=Green
+      option.CloudsB=Blue
+      option.CloudsA=Alpha
+
+    option.ambientOcclusionLevel=Vanilla AO Strength
+      value.ambientOcclusionLevel.0.0=off
+      value.ambientOcclusionLevel.1.0=Vanilla
+
+    option.MOTION_BLUR=Motion Blur
+      option.MOTION_BLUR_NOISE=Motion Blur Noise
+      option.MOTION_BLUR_STRENGTH=Motion Blur Strength
+        option.MOTION_BLUR_STRENGTH.comment=Lower is more intense.
+
+    option.WavingWater=Waving Water
+      option.WaterWaveIntensity=Wave Intensity
+      option.WWavingSpeed=Wave Speed
+
+    option.UNDERWATER_REFRACTION=Underwater Refractions
+      option.UNDERWATER_REFRACTION_AMOUNT=Intensity
+      option.UNDERWATER_REFRACTION_ANIMATION_SPEED=Speed
+
+    option.CSKY=Custom Sky
+      option.CSKYR=Red
+      option.CSKYG=Green
+      option.CSKYB=Blue
+
+
+
+
