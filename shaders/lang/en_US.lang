@@ -74,11 +74,8 @@ screen.water
     option.BWATER=Blue
 
 option.CustomUWF=Underwater Fog
-    option.UWFR=Red
-    option.UWFG=Green
-    option.UWFB=Blue
-    option.UWFA=Alpha
-    option.UWFI=Intensity
+    option.UWFI=Underwater Fog Intensity
+    option.UwU=Water Fog Intensity
 
 
   screen.DOF_SCREEN=Depth of field
