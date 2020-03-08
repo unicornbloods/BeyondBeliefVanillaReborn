@@ -45,7 +45,7 @@
 			fogcolor = pow(vec3(OFOGR, OFOGG, OFOGB) / 255, vec3(2.2));
 		#endif
 
-		color = mix(color, fogcolor, min(GetDepthLinear(texcoord.st) * FogIntensity / far, OFOGA));
+		color.rgb = mix(color.rgb, fogcolor, min(GetDepthLinear(texcoord.st) * FogIntensity / far, (OFOGA / 255)));
 
 	#ifdef LBOFOG
 	}
