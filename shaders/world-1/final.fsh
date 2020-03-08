@@ -29,10 +29,8 @@
 
     #ifdef NETHER_REFRACTION
         vec2 NetherRefraction(in vec2 coord) {
-            if(true) {
-                vec2 refraction = vec2(sin(frameTimeCounter * 1.75 * NETHER_REFRACTION_ANIMATION_SPEED + texcoord.x * 50.0 + texcoord.y * 25.0), cos(frameTimeCounter * 2.5 * NETHER_REFRACTION_ANIMATION_SPEED + texcoord.y * 100.0 + texcoord.x * 25.0));
-                return coord + refraction * 0.002 * NETHER_REFRACTION_AMOUNT;
-            }
+            vec2 refraction = vec2(sin(frameTimeCounter * 1.75 * NETHER_REFRACTION_ANIMATION_SPEED + texcoord.x * 50.0 + texcoord.y * 25.0), cos(frameTimeCounter * 2.5 * NETHER_REFRACTION_ANIMATION_SPEED + texcoord.y * 100.0 + texcoord.x * 25.0));
+            return coord + refraction * 0.002 * NETHER_REFRACTION_AMOUNT;
             return coord;
         }
     #endif
