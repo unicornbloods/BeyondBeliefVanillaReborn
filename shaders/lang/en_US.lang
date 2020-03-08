@@ -16,6 +16,20 @@ screen.Global= Global
     option.FGrain= Film Grain
         option.FGrain.comment= Adds a grainy effect to the screen in areas with low light kind of like real life. §a Little to no performance impact.
 
+    screen.lensGlobal= lens
+        
+        screen.monochrome= monochrome
+            option.lensMonochrome= Monochrome effect
+                option.lensMonochrome.comment= Enables / Disables The monochromatic lens effect. §a Little to no performance impact.
+            option.lMonoRed= §cRed
+                option.lMonoRed.comment= Changes the Red value of the monochrome lens color using RGBA color spectrum.
+            option.lMonoGreen= §aGreen
+                option.lMonoGreen.comment= Changes the Green value of the monochrome lens color using RGBA color spectrum.
+            option.lMonoBlue= §9Blue
+                option.lMonoBlue.comment= Changes the Blue value of the monochrome lens color using RGBA color spectrum.
+            option.lMonoAlpha= Alpha
+                option.lMonoAlpha.comment= Changes the Alpha value of the monochrome lens color using RGBA color spectrum. Alpha is the opacity or transparency of a color.
+
 
 // Overworld
 
