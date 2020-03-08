@@ -80,6 +80,14 @@ screen.Nether= §c Nether
         option.NDOF_FOCAL= Focal
             option.NDOF_FOCAL.comment= Size of the lens focus area.
 
+    screen.netherRefraction= Heat Refraction
+        option.NETHER_REFRACTION= Heat Refraction
+            option.NETHER_REFRACTION.comment= Adds a refrection effect similar to being underwater to simulate the hot environment. §e Slight performance impact.
+        option.NETHER_REFRACTION_AMOUNT= Refraction Intensity
+            option.NETHER_REFRACTION_AMOUNT.comment= Changes the Intensity of the refraction effect.
+        option.NETHER_REFRACTION_ANIMATION_SPEED= Refraction Speed
+            option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the refraction effect.
+
 
 // End
 

@@ -2,8 +2,6 @@
 	#define FGStrength 0.08
 
 
-uniform float frameTimeCounter;
-
 
 float randFilmGrain(in vec2 refcoord) { //just a noise function, calculates noise based on the given coord
     return fract(sin(dot(refcoord.st, vec2(12.9898, 78.233))) * 43758.5453);
