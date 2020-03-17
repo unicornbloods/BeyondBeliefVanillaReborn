@@ -9,17 +9,17 @@
 
 	// for fog
 	uniform vec3 skyColor;
-    uniform vec3 fogColor;
-    uniform float isSwamp;
+	uniform vec3 fogColor;
+	uniform float isSwamp;
 	uniform float near;
-    uniform float far;
+	uniform float far;
 	uniform sampler2D depthtex0;
-    uniform sampler2D gdepthtex;
+	uniform sampler2D gdepthtex;
 
 
 /* #### Functions #### */
 
-	 #include "/lib/Overworld/OverworldFog.glsl"
+	#include "/lib/Overworld/OverworldFog.glsl"
 
 /* #### Includes #### */
 
