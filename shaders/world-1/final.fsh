@@ -37,10 +37,6 @@
 
 /* #### Includes #### */
 
-    #include "/lib/Nether/NFog.glsl"
-
-    #include "/lib/Global/FilmGrain.glsl"
-
 /* #### VoidMain #### */
 
     void main() {
@@ -53,9 +49,7 @@
 
         vec4 color = vec4(texture2D(colortex0, coord).rgb, 1.0); //always use the "refracted" coord instead of texcoord after the refraction
 
-        #include "/lib/Global/FinalVoidCommon.glsl"
 
-        #include "/lib/Nether/NFogVM.glsl"
 
         color.rgb *= NetherDarkness;
 

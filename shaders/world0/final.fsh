@@ -18,10 +18,29 @@
 
 /* #### Includes #### */
 
+    #include "/lib/Global/Tonemaps.glsl"
+
 /* #### VoidMain #### */
 
 void main() {
 	vec3 color = texture2D(gcolor, texcoord).rgb;
+
+    // Tonemapping 
+
+	#if TONEMAP == 2
+		color.rgb = BOTWTonemap(color.rgb);
+	#elif TONEMAP == 3
+		color.rgb = BWTonemap(color.rgb);
+	#elif TONEMAP == 4
+		color.rgb = NegativeTonemap(color.rgb);
+	#elif TONEMAP == 5
+		color.rgb = SpoopyTonemap(color.rgb);
+	#elif TONEMAP == 6
+		color.rgb = BSLTonemap(color.rgb);
+		color.rgb = colorSaturation(color.rgb);
+    #else
+        color.rgb = color.SWIZZLE;
+	#endif
 
 	#ifdef lensMonochrome
         float brightness = dot(color.rgb, vec3(0.299, 0.587, 0.114)); // or (color.r + color.g + color.b) / 3
