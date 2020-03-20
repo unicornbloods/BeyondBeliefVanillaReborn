@@ -42,13 +42,13 @@ const float ambientOcclusionLevel = 1.0; //Vanilla AO[0.0 0.1 0.2 0.3 0.4 0.5 0.
 #endif
 
 float ld(float depth) {
-   return (2.0 * near) / (far + near - depth * (far - near));
+	return (2.0 * near) / (far + near - depth * (far - near));
 }
 
 //from dither.glsl
 float bayer2(vec2 a){
-    a = floor(a);
-    return fract( dot(a, vec2(.5, a.y * .75)) );
+	a = floor(a);
+	return fract( dot(a, vec2(.5, a.y * .75)) );
 }
 
 #define bayer4(a)   (bayer2( .5*(a))*.25+bayer2(a))
@@ -66,7 +66,7 @@ float bayer2(vec2 a){
 
 vec2 offsetDist(float x, int s){
 	float n = fract(x*1.414)*3.1415;
-    return vec2(cos(n),sin(n))*x/s;
+	return vec2(cos(n),sin(n))*x/s;
 }
 
 float dbao(sampler2D depth, float dither){

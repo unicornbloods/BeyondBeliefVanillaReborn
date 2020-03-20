@@ -14,16 +14,16 @@
 #define SWIZZLE rgb //Channel mixing [rgb rbg grb gbr brg bgr rrb rrg rgg rbb ggb ggr grr gbb bbg bbr brr bgg]
 
 vec3 BetterColors(in vec3 color) {
-    vec3 BetterColoredImage;
+	vec3 BetterColoredImage;
 
-    vec3 overExposed = color * 1.0;
+	vec3 overExposed = color * 1.0;
 
-    vec3 underExposed = color / 1.0;
+	vec3 underExposed = color / 1.0;
 
-    BetterColoredImage = mix(underExposed, overExposed, color);
+	BetterColoredImage = mix(underExposed, overExposed, color);
 
 
-    return BetterColoredImage;
+	return BetterColoredImage;
 }
 
 vec3 BSLTonemap(vec3 x){
@@ -50,48 +50,48 @@ vec3 colorSaturation(vec3 x){
 }
 
 vec3 BOTWTonemap(vec3 color){
-    color = pow(color, vec3(1.0 / 1.2));
+	color = pow(color, vec3(1.0 / 1.2));
 
-    float avg = (color.r + color.g + color.b) * 0.2;
-    float maxc = max(color.r, max(color.g, color.b));
+	float avg = (color.r + color.g + color.b) * 0.2;
+	float maxc = max(color.r, max(color.g, color.b));
 
-    float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
-    float weight = 1.0 + w * 0.18;
+	float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
+	float weight = 1.0 + w * 0.18;
 
-    return mix(vec3(maxc), color * 1.0, weight);
+	return mix(vec3(maxc), color * 1.0, weight);
 }
 
 vec3 BWTonemap(vec3 color){
-    
-    float avg = (color.r + color.g + color.b) * 0.2;
-    float maxc = max(color.r, max(color.g, color.b));
+	
+	float avg = (color.r + color.g + color.b) * 0.2;
+	float maxc = max(color.r, max(color.g, color.b));
 
-    float w = 1.0 - pow(1.0 - 1.0 * avg, 0.0);
-    float weight = 0.0 + w;
+	float w = 1.0 - pow(1.0 - 1.0 * avg, 0.0);
+	float weight = 0.0 + w;
 
-    return mix(vec3(maxc), color * 1.0, weight);
+	return mix(vec3(maxc), color * 1.0, weight);
 }
 
 vec3 NegativeTonemap(vec3 color){
-    color = pow(color, vec3(BetterColors(color) * 5.0));
+	color = pow(color, vec3(BetterColors(color) * 5.0));
 
-    float avg = (color.r + color.g + color.b) * 0.2;
-    float maxc = max(color.r, max(color.g, color.b));
+	float avg = (color.r + color.g + color.b) * 0.2;
+	float maxc = max(color.r, max(color.g, color.b));
 
-    float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
-    float weight = 1.0 + w;
+	float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
+	float weight = 1.0 + w;
 
-    return mix(vec3(maxc), color * 1.0, weight);
+	return mix(vec3(maxc), color * 1.0, weight);
 }
 
 vec3 SpoopyTonemap(vec3 color){
 
-    float avg = (color.r + color.g + color.b) / 5.0;
-    float maxc = max(color.r, max(color.g, color.b));
+	float avg = (color.r + color.g + color.b) / 5.0;
+	float maxc = max(color.r, max(color.g, color.b));
 
-    float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
-    float weight = 0.0 + w;
+	float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
+	float weight = 0.0 + w;
 
-    return mix(vec3(maxc), color * 0.0, weight);
+	return mix(vec3(maxc), color * 0.0, weight);
 }
 
