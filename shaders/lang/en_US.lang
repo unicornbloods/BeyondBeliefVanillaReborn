@@ -94,6 +94,23 @@ screen.Overworld= §a Overworld
 
 		screen.water= water
 
+			screen.swaterColor= Color
+				option.waterCustom= Type
+					option.waterCustom.comment= Change water color type. §a Little to no performance impact.
+					value.waterCustom.0=Off
+					value.waterCustom.1=Textured + Biome
+					value.waterCustom.2=Textured
+					value.waterCustom.3=No texture
+
+				option.waterRed= §cRed
+					option.waterRed.comment= Changes the Red value of the water color using RGBA color spectrum.
+				option.waterGreen= §aGreen
+					option.waterGreen.comment= Changes the Green value of the water color using RGBA color spectrum.
+				option.waterBlue= §9Blue
+					option.waterBlue.comment= Changes the Blue value of the water color using RGBA color spectrum.
+				option.waterAlpha= Alpha
+					option.waterAlpha.comment= Changes the Alpha value of the water color using RGBA color spectrum. Alpha is the opacity or transparency of a color.
+
 			screen.swaterWaving= Waves
 				option.waterWaving= Waves
 					option.waterWaving.comment= Enables / Disables water waves. §a Little to no performance impact.
@@ -105,18 +122,12 @@ screen.Overworld= §a Overworld
 			screen.swaterFog= Fog
 				option.waterFog= Fog
 					option.waterFog.comment= Enables / Disables water fog. §a Little to no performance impact.
-				option.waterFogRed= §cRed
-					option.waterFogRed.comment= Changes the Red value of the fog color using RGBA color spectrum.
 				option.waterFogDensity= Underwater Density
 					option.waterFogDensity.comment= Changes the fog density when viewed from within water.
-				option.waterFogGreen= §aGreen
-					option.waterFogGreen.comment= Changes the Green value of the fog color using RGBA color spectrum.
 				option.waterFogDensityAbove= Abovewater Density
 					option.waterFogDensityAbove.comment= Changes the fog density when viewed from above water.
-				option.waterFogBlue= §9Blue
-					option.waterFogBlue.comment= Changes the Blue value of the fog color using RGBA color spectrum.
-				option.waterFogAlpha= Alpha
-					option.waterFogAlpha.comment= Changes the Alpha value of the fog color using RGBA color spectrum. Alpha is the opacity or transparency of a color.
+
+
 
 // Nether
 
