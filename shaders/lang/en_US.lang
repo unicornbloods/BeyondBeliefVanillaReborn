@@ -126,6 +126,14 @@ screen.Overworld= §a Overworld
 					option.waterFogDensity.comment= Changes the fog density when viewed from within water.
 				option.waterFogDensityAbove= Abovewater Density
 					option.waterFogDensityAbove.comment= Changes the fog density when viewed from above water.
+		
+		screen.swavingFoliage= Waving Plants
+			option.wavingFoliage= Foliage
+				option.wavingFoliage.comment= Enables / Disables waving plants. §6 Moderate performance impact in forested areas.
+			option.wavingLeaves= Leaves
+				option.wavingLeaves.comment= Enables / Disables waving leaves. §6 Moderate performance impact in forested areas.
+			option.wavingSpeed= Speed
+				option.wavingSpeed.comment= Speed at which the plants / leaves sway.
 
 
 
