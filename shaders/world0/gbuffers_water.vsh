@@ -36,7 +36,7 @@ void main() {
 
 		float displacement = 0.0;
 
-		if(mc_Entity.x == 10008.0 || mc_Entity.x == 10009.0) {
+		if(mc_Entity.x == 10008.0) {
 			iswater = 1.0;
 			float fy = fract(worldpos.y + 0.0001);
 
@@ -45,10 +45,10 @@ void main() {
 
 				displacement = clamp(wave, -fy, 1.0-fy);
 				viewpos.y += displacement*waterWaveIntensity;
-		}
-
-		if (mc_Entity.x == 13010) {
+		} else if (mc_Entity.x == 13010) {
 			iswater = 0.8;
+		} else {
+			iswater = 0.0;
 		}
 
 		viewpos = gbufferModelView * viewpos;
