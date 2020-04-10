@@ -20,7 +20,7 @@ void main() {
 	vec4 color = texture2D(texture, texcoord) * glcolor;
 	color *= texture2D(lightmap, lmcoord);
 
-	if (matID == 1) {
+	if (matID >= 0.5 && matID <= 1.2) {
 		#if waterCustom == 1
 			color = (color * vec4(waterRed, waterGreen, waterBlue, waterAlpha ) / 255.0f) * texture2D(lightmap, lmcoord);
 		#elif waterCustom == 2

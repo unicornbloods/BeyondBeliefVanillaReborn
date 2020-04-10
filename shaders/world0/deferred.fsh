@@ -116,6 +116,7 @@ void main(){
 	color.rgb *= dbao(depthtex0, dither);
 	#endif
 
+	/* DRAWBUFFERS:0 */
 
 	gl_FragData[0] = color;
 }
