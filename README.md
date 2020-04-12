@@ -1,4 +1,4 @@
-
+<sub> Image taken using Rebirth of the Night modpack, found <a href="https://www.curseforge.com/minecraft/modpacks/rebirth-of-the-night"> here. </a> </sub>
 <img src="https://i.postimg.cc/MGzNvqzM/banner.png" alt="banner">
 
 <b> Minecraft version does not matter with my shaders! It should work on all versions that have Optifine. </b> <br>
