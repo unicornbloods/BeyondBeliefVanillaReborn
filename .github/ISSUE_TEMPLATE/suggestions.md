@@ -1,9 +1,9 @@
 ---
-name: Bug Report
+name: suggestions
 about: Create a suggestion to help me improve.
 title: "[SUGGESTION]"
-labels: ''
-assignees: ''
+labels: enhancement
+assignees: unicornbloods
 
 ---
 

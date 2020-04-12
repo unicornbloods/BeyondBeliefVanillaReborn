@@ -1,8 +1,8 @@
 ---
-name: Bug Report
-about: Create a report to help improve the shader.
+name: Bug report
+about: Create a report to help us improve
 title: "[BUG]"
-labels: ''
+labels: bug
 assignees: ''
 
 ---
@@ -14,6 +14,8 @@ Minecraft version:
 
 Optifine version:
 
+Shader version:
+
 Graphics card:
 
 Operating system:
@@ -23,4 +25,3 @@ Description of the bug:
 Screenshots if any (Visual errors):
 
 latest.log if any (OpenGL errors):
-
