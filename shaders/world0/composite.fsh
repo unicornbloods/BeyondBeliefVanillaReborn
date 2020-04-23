@@ -42,7 +42,6 @@
 	uniform sampler2D depthtex1;
 	uniform sampler2D colortex1; // calls matID from buffer 1
 
-
 /* #### Functions #### */
 
 	vec2 newtc = texcoord.xy;
@@ -61,6 +60,17 @@
 		return mix((vec3(waterRed, waterGreen, waterBlue) / 420 ), color, exp(depth * waterFogDensityAbove));
 	}
 
+	// vec3 waterColor(in vec3 color) {
+	// 	float depth = texture2D(depthtex0, newtc).r;
+	// 	vec3 scatteringCoefficient = vec3(1e-3);
+	// 	vec3 attenuationCoefficient = vec3(1.0, 0.2, 0.1);
+	// 	vec3 transmittance = exp(-attenuationCoefficient * depth);
+	// 	vec3 scattering = vec3(242 / 255, 242 / 255, 242 / 255);
+	// 	scattering *= scatteringCoefficient;
+	// 	scattering *= (1.0 - transmittance) / attenuationCoefficient;
+	// 	return color * transmittance + scattering;
+	// }
+
 /* #### Includes #### */
 
 /* #### VoidMain #### */
@@ -77,24 +87,19 @@ void main() {
 
 	float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
 	matID *= 2.0; //back to the original range
-	
+	float depth = texture2D(depthtex0, newtc).r;
+
 	#ifdef waterFog
 		if(isEyeInWater == 1) {
-			float depth = texture2D(depthtex0, newtc).r;
-
-			// vec3 fogColor = pow(vec3(waterRed, waterGreen, waterBlue) / 255.0, vec3(2.2));
 
 			vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
 
 			color = mix(color, WaterColor, length(viewPos) * waterFogDensity / far);
 			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
-			// color *= (vec3(waterRed, waterGreen, waterBlue) / 255); // makes underwater super dark
-
 
 		} 
 
 		if(matID >= 0.1 && matID <= 1.5 && isEyeInWater == 0) { // Targetting water
-		float depth = texture2D(depthtex0, newtc).r;
 			color = mix(color, water_fog(color), 0.85);
 			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
 		}
@@ -103,10 +108,7 @@ void main() {
 
 	// Main fog
 
-	// float depth = texture2D(depthtex0, newtc).r;
-	float depth0 = texture2D(depthtex0, texcoord).x;
-
-	float depth = texture2D(depthtex1, texcoord.xy).x;
+	depth = texture2D(depthtex1, texcoord.xy).x;
 
 	#ifdef LBOFOG
 		if	(depth < 1.0 && isEyeInWater == 0) {
@@ -141,6 +143,7 @@ void main() {
 	#ifdef LBOFOG
 		}
 	#endif
+	
 
 
 	/* DRAWBUFFERS:0 */
