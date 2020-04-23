@@ -62,6 +62,21 @@ screen.Global= Global
 		option.ndeSat= Desaturation
 			option.ndeSat.comment= Level of desaturation in dark environments.
 
+	screen.AO= Ambient Occlusion
+		option.SSAO= SSAO Toggle
+			option.SSAO.comment= Toggles on SSAO instead of Vanilla AO. §a Little to no performance impact.
+		option.ambientOcclusionLevel=Vanilla AO Strength
+			option.ambientOcclusionLevel.comment= Vanilla AO strength. §a Little to no performance impact.
+			value.ambientOcclusionLevel.0.0=off
+			value.ambientOcclusionLevel.1.0=Vanilla
+		option.AOAmount= SSAO Strength
+			option.AOAmount.comment= Increases the strength of the SSAO effect.
+		option.AOSamples= SSAO Samples
+			option.AOSamples.comment=Higher sample numbers increase the SSAO quality but decreases fps.
+
+	option.CELSHADING= Celshading
+		option.CELSHADING.comment= Enables / Disables Celshading. Celshading is a borderlandsesque block bordering. §a Little to no performance impact.
+
 // Overworld
 
 screen.Overworld= §a Overworld
