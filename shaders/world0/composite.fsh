@@ -87,12 +87,12 @@ void main() {
 			vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
 
 			color = mix(color, WaterColor, length(viewPos) * waterFogDensity / far);
-			// color *= (vec3(waterRed, waterGreen, waterBlue) / 420);
+			// color *= (vec3(waterRed, waterGreen, waterBlue) / 255); // makes underwater super dark
 
 
 		} 
 
-		if(matID > 0.9 && matID < 1.5 && isEyeInWater == 0) { // Targetting water
+		if(matID >= 0.1 && matID <= 1.5 && isEyeInWater == 0) { // Targetting water
 			color = mix(color, water_fog(color), 0.85);
 		}
 
