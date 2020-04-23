@@ -77,6 +77,19 @@ screen.Global= Global
 	option.CELSHADING= Celshading
 		option.CELSHADING.comment= Enables / Disables Celshading. Celshading is a borderlandsesque block bordering. §a Little to no performance impact.
 
+
+	screen.sCSBOX= Custom Box
+		option.CSBOX= Toggle
+			option.CSBOX.comment= Enables custom selection box color. Enabling will also change leads to the selected color Sadly this is unavoidable. §a Little to no performance impact.
+		option.CSR= §cRed
+			option.CSR.comment= Changes the Red value of the Custom Box color using RGB color spectrum.
+		option.CSG= §aGreen 
+			option.CSG.comment= Changes the Green value of the Custom Box color using RGB color spectrum.
+		option.CSB= §9Blue
+			option.CSB.comment= Changes the Blue value of the Custom Box color using RGB color spectrum.
+
+
+
 // Overworld
 
 screen.Overworld= §a Overworld
