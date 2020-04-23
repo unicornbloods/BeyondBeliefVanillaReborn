@@ -87,13 +87,16 @@ void main() {
 			vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
 
 			color = mix(color, WaterColor, length(viewPos) * waterFogDensity / far);
+			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
 			// color *= (vec3(waterRed, waterGreen, waterBlue) / 255); // makes underwater super dark
 
 
 		} 
 
 		if(matID >= 0.1 && matID <= 1.5 && isEyeInWater == 0) { // Targetting water
+		float depth = texture2D(depthtex0, newtc).r;
 			color = mix(color, water_fog(color), 0.85);
+			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
 		}
 
 	#endif
