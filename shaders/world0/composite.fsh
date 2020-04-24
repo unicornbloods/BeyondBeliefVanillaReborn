@@ -60,16 +60,16 @@
 		return mix((vec3(waterRed, waterGreen, waterBlue) / 420 ), color, exp(depth * waterFogDensityAbove));
 	}
 
-	// vec3 waterColor(in vec3 color) {
-	// 	float depth = texture2D(depthtex0, newtc).r;
-	// 	vec3 scatteringCoefficient = vec3(1e-3);
-	// 	vec3 attenuationCoefficient = vec3(1.0, 0.2, 0.1);
-	// 	vec3 transmittance = exp(-attenuationCoefficient * depth);
-	// 	vec3 scattering = vec3(242 / 255, 242 / 255, 242 / 255);
-	// 	scattering *= scatteringCoefficient;
-	// 	scattering *= (1.0 - transmittance) / attenuationCoefficient;
-	// 	return color * transmittance + scattering;
-	// }
+	vec3 waterColor(in vec3 color) {
+		float depth = texture2D(depthtex0, newtc).r;
+		vec3 scatteringCoefficient = vec3(0.1);
+		vec3 attenuationCoefficient = vec3(1.0, 0.2, 0.1);
+		vec3 transmittance = exp(-attenuationCoefficient * depth);
+		vec3 scattering = vec3(0.942);
+		scattering *= scatteringCoefficient;
+		scattering *= (1.0 - transmittance) / attenuationCoefficient;
+		return color * transmittance + scattering;
+	}
 
 /* #### Includes #### */
 
