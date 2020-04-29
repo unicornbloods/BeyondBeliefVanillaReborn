@@ -178,7 +178,6 @@ screen.Overworld= §a Overworld
 				option.OFOGI.comment= Changes how thick the fog appears.
 
 
-
 // Nether
 
 screen.Nether= §c Nether
@@ -219,7 +218,6 @@ screen.Nether= §c Nether
 			option.NETHER_REFRACTION_AMOUNT.comment= Changes the Intensity of the refraction effect.
 		option.NETHER_REFRACTION_ANIMATION_SPEED= Refraction Speed
 			option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the refraction effect.
-
 
 // End
 
