@@ -155,13 +155,27 @@ screen.Overworld= §a Overworld
 				option.waterFogDensityAbove= Abovewater Density
 					option.waterFogDensityAbove.comment= Changes the fog density when viewed from above water.
 		
-		screen.swavingFoliage= Waving Plants
-			option.wavingFoliage= Foliage
-				option.wavingFoliage.comment= Enables / Disables waving plants. §6 Moderate performance impact in forested areas.
-			option.wavingLeaves= Leaves
-				option.wavingLeaves.comment= Enables / Disables waving leaves. §6 Moderate performance impact in forested areas.
-			option.wavingSpeed= Speed
-				option.wavingSpeed.comment= Speed at which the plants / leaves sway.
+			screen.swavingFoliage= Waving Plants
+				option.wavingFoliage= Foliage
+					option.wavingFoliage.comment= Enables / Disables waving plants. §6 Moderate performance impact in forested areas.
+				option.wavingLeaves= Leaves
+					option.wavingLeaves.comment= Enables / Disables waving leaves. §6 Moderate performance impact in forested areas.
+				option.wavingSpeed= Speed
+					option.wavingSpeed.comment= Speed at which the plants / leaves sway.
+
+		screen.OFOG=Fog
+			option.OFOG= Fog
+				option.OFOG.comment= Enables / Disables fog generation in the Nether dimension. §a Little to no performance impact.
+				value.OFOG.0= Vanilla
+				value.OFOG.1= Colored
+			option.OFOGR= §cRed
+				option.OFOGR.comment= Changes the Red value of the fog color using RGBA color spectrum.
+			option.OFOGG= §aGreen
+				option.OFOGG.comment= Changes the Green value of the fog color using RGBA color spectrum.
+			option.OFOGB= §9Blue
+				option.OFOGB.comment= Changes the Blue value of the fog color using RGBA color spectrum.
+			option.OFOGI= Strength
+				option.OFOGI.comment= Changes how thick the fog appears.
 
 
 

@@ -2,12 +2,11 @@
 
 /* #### Adjustable Variables #### */
 
-// #define OFOG
+#define OFOG 0 //[0 1]
 	#define OFOGR 112 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 	#define OFOGG 128 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 	#define OFOGB 144 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
-	#define OFOGA 0.77 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
-	#define OFOGI 2 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9 6.0]
+	#define OFOGI 3.5 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9 6.0 10.0]
 	#define SWAMPFOG
 	#define LBOFOG //Toggle the land based only fog effect. Will affect clouds and sky with it off based on the intensity.
 	
@@ -42,6 +41,7 @@
 	uniform sampler2D depthtex1;
 	uniform sampler2D colortex1; // calls matID from buffer 1
 
+
 /* #### Functions #### */
 
 	vec2 newtc = texcoord.xy;
@@ -60,17 +60,6 @@
 		return mix((vec3(waterRed, waterGreen, waterBlue) / 420 ), color, exp(depth * waterFogDensityAbove));
 	}
 
-	vec3 waterColor(in vec3 color) {
-		float depth = texture2D(depthtex0, newtc).r;
-		vec3 scatteringCoefficient = vec3(0.1);
-		vec3 attenuationCoefficient = vec3(1.0, 0.2, 0.1);
-		vec3 transmittance = exp(-attenuationCoefficient * depth);
-		vec3 scattering = vec3(0.942);
-		scattering *= scatteringCoefficient;
-		scattering *= (1.0 - transmittance) / attenuationCoefficient;
-		return color * transmittance + scattering;
-	}
-
 /* #### Includes #### */
 
 /* #### VoidMain #### */
@@ -87,28 +76,33 @@ void main() {
 
 	float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
 	matID *= 2.0; //back to the original range
-	float depth = texture2D(depthtex0, newtc).r;
-
+	
 	#ifdef waterFog
 		if(isEyeInWater == 1) {
+			float depth = texture2D(depthtex0, newtc).r;
+
+			// vec3 fogColor = pow(vec3(waterRed, waterGreen, waterBlue) / 255.0, vec3(2.2));
 
 			vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
 
 			color = mix(color, WaterColor, length(viewPos) * waterFogDensity / far);
-			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
+			// color *= (vec3(waterRed, waterGreen, waterBlue) / 420);
+
 
 		} 
 
-		if(matID >= 0.1 && matID <= 1.5 && isEyeInWater == 0) { // Targetting water
+		if(matID > 0.9 && matID < 1.5 && isEyeInWater == 0) { // Targetting water
 			color = mix(color, water_fog(color), 0.85);
-			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
 		}
 
 	#endif
 
 	// Main fog
 
-	depth = texture2D(depthtex1, texcoord.xy).x;
+	// float depth = texture2D(depthtex0, newtc).r;
+	float depth0 = texture2D(depthtex0, texcoord).x;
+
+	float depth = texture2D(depthtex1, texcoord.xy).x;
 
 	#ifdef LBOFOG
 		if	(depth < 1.0 && isEyeInWater == 0) {
@@ -119,7 +113,7 @@ void main() {
 		// float FogIntensity = mix(OFOGI, (OFOGI * 10), rainStrength);
 		float FogIntensity = OFOGI;
 	
-		#ifdef OFOG
+		#if OFOG == 1
 			vec3 fogcolor = fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 0.5);
 		#else
 			vec3 fogcolor = fogColor;
@@ -134,7 +128,7 @@ void main() {
 			}
 		#endif
 
-		#ifdef OFOG
+		#if OFOG == 1
 			fogcolor = pow(vec3(OFOGR, OFOGG, OFOGB) / 255, vec3(2.2));
 		#endif
 
@@ -143,7 +137,6 @@ void main() {
 	#ifdef LBOFOG
 		}
 	#endif
-	
 
 
 	/* DRAWBUFFERS:0 */
