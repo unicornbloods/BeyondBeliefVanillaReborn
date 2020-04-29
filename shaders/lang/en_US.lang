@@ -163,7 +163,7 @@ screen.Overworld= §a Overworld
 				option.wavingSpeed= Speed
 					option.wavingSpeed.comment= Speed at which the plants / leaves sway.
 
-		screen.OFOG=Fog
+		screen.OFog= Fog
 			option.OFOG= Fog
 				option.OFOG.comment= Enables / Disables fog generation in the Nether dimension. §a Little to no performance impact.
 				value.OFOG.0= Vanilla
