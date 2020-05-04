@@ -24,6 +24,8 @@
 	uniform sampler2D gdepthtex;
 	uniform mat4 gbufferProjectionInverse; 
 
+	uniform int isEyeInWater;
+
 
 /* #### Functions #### */
 
@@ -38,6 +40,10 @@
 		color = mix(color, color * NetherDarkness, amount);
 
 		color.rgb = pow(color.rgb, vec3(1.0 / 2.2)); // convert from linear to gamma
+	}
+
+	float GetDepthLinear(in vec2 coord) { //Function that retrieves the scene depth. 0 - 1, higher values meaning farther away
+		return 2.0f * near * far / (far + near - (2.0f * texture2D(gdepthtex, coord).x - 1.0f) * (far - near));
 	}
 
 /* #### Includes #### */
@@ -61,6 +67,17 @@ void main() {
 		color.rgb = mix(color.rgb, fogColor, length(viewPos) / (far * NFOGI));
 
 	#endif
+
+	//lava fog
+	if(isEyeInWater == 2) {
+		vec2 newtc = texcoord.xy;
+		float depth = texture2D(depthtex0, newtc).r;
+
+		vec3 fogColor = pow(vec3(195, 87, 0) / 255.0, vec3(2.2));
+
+		color = mix(color, fogColor, min(GetDepthLinear(texcoord.st) * 500.0 / far, 0.955));
+	}
+
 
 	darkerShadows(color.rgb);
 

@@ -138,6 +138,15 @@ void main() {
 		}
 	#endif
 
+	//lava fog
+	if(isEyeInWater == 2) {
+		float depth = texture2D(depthtex0, newtc).r;
+
+		vec3 fogColor = pow(vec3(195, 87, 0) / 255.0, vec3(2.2));
+
+		color = mix(color, fogColor, min(GetDepthLinear(texcoord.st) * 500.0 / far, 0.955));
+	}
+
 
 	/* DRAWBUFFERS:0 */
 	gl_FragData[0] = vec4(color, 1.0); //gcolor
