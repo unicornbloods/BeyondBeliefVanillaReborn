@@ -22,7 +22,7 @@
 
 /* #### Variables #### */
 
-	uniform sampler2D gcolor;
+	uniform sampler2D colortex0;
 	varying vec2 texcoord;
 
 
@@ -40,6 +40,7 @@
 	uniform int   isEyeInWater;
 	uniform sampler2D depthtex1;
 	uniform sampler2D colortex1; // calls matID from buffer 1
+	uniform sampler2D colortex2; // calls lmcoord from buffer 2
 
 
 /* #### Functions #### */
@@ -56,8 +57,10 @@
 
 	vec3 water_fog(in vec3 color) {
 		float depth = ExpToLinearDepth(texture2D(depthtex0, texcoord.st).r )-ExpToLinearDepth( texture2D(depthtex1, texcoord.st).r);
+		float torchmap = texture2D(colortex1, texcoord).r * texture2D(colortex1, texcoord).r;
+		float skymap = texture2D(colortex1, texcoord).g; skymap *= skymap;
 
-		return mix((vec3(waterRed, waterGreen, waterBlue) / 420 ), color, exp(depth * waterFogDensityAbove));
+		return mix((vec3(waterRed, waterGreen, waterBlue) / 420 ) * (skymap * torchmap), color, exp(depth * waterFogDensityAbove));
 	}
 
 /* #### Includes #### */
@@ -65,7 +68,7 @@
 /* #### VoidMain #### */
 
 void main() {
-	vec3 color = texture2D(gcolor, texcoord).rgb;
+	vec3 color = texture2D(colortex0, texcoord).rgb;
 
 	// for fog
 	vec3 screenspace = vec3(texcoord, texture2D(depthtex0, texcoord).r);
@@ -146,8 +149,6 @@ void main() {
 
 		color = mix(color, fogColor, min(GetDepthLinear(texcoord.st) * 500.0 / far, 0.955));
 	}
-
-
 
 	/* DRAWBUFFERS:0 */
 	gl_FragData[0] = vec4(color, 1.0); //gcolor

@@ -30,7 +30,4 @@ void main() {
 	gl_FragData[0] = color; //colortex0
 
 #endif
-
-	gl_FragData[1] = vec4(0.0);
-
 }

@@ -113,7 +113,7 @@ void main(){
 	float dither = bayer64(gl_FragCoord.xy);
 
 	#ifdef SSAO
-	color.rgb *= dbao(depthtex0, dither);
+		color.rgb *= dbao(depthtex0, dither);
 	#endif
 
 	/* DRAWBUFFERS:0 */
