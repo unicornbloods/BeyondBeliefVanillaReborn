@@ -37,6 +37,7 @@ void main() {
 
 		float displacement = 0.0;
 
+		matID = 0.0;
 		if(mc_Entity.x == 10008) matID = 1.0; // Water
 		if(mc_Entity.x == 13010) matID = 2.0; // tranclucents
 

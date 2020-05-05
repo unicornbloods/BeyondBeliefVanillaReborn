@@ -74,27 +74,24 @@ void main() {
 	vec3 screenspace = vec3(texcoord, texture2D(depthtex0, texcoord).r);
 	vec4 tmp = gbufferProjectionInverse * vec4(screenspace * 2.0 - 1.0, 1.0);
 	vec3 viewPos = tmp.xyz / tmp.w;
-
 	// end for fog
 
 	float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
 	matID *= 2.0; //back to the original range
-	
+
+	float depth = texture2D(depthtex0, newtc).r;
 	#ifdef waterFog
 		if(isEyeInWater == 1) {
-			float depth = texture2D(depthtex0, newtc).r;
-
-			// vec3 fogColor = pow(vec3(waterRed, waterGreen, waterBlue) / 255.0, vec3(2.2));
 
 			vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
 
+			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
 			color = mix(color, WaterColor, length(viewPos) * waterFogDensity / far);
-			// color *= (vec3(waterRed, waterGreen, waterBlue) / 420);
 
-
-		} 
+		}
 
 		if(matID > 0.9 && matID < 1.5 && isEyeInWater == 0) { // Targetting water
+			color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
 			color = mix(color, water_fog(color), 0.85);
 		}
 
@@ -102,10 +99,9 @@ void main() {
 
 	// Main fog
 
-	// float depth = texture2D(depthtex0, newtc).r;
 	float depth0 = texture2D(depthtex0, texcoord).x;
 
-	float depth = texture2D(depthtex1, texcoord.xy).x;
+	depth = texture2D(depthtex1, texcoord.xy).x;
 
 	#ifdef LBOFOG
 		if	(depth < 1.0 && isEyeInWater == 0) {
