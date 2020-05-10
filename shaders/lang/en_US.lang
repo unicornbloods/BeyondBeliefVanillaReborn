@@ -138,6 +138,13 @@ screen.Global= Global
 			option.UNDERWATER_REFRACTION_ANIMATION_SPEED=Speed
 				option.UNDERWATER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the refraction effect.
 
+		screen.motionblur= Motion Blur
+			option.MOTION_BLUR=Motion Blur
+				option.MOTION_BLUR.comment= Enables / Disables Motion blur. A popular effect from fps games that simulate your vision bluring as you quickly turn. §a Little to no performance impact.
+			option.MOTION_BLUR_NOISE=Motion Blur Noise
+				option.MOTION_BLUR_NOISE.comment= Adds noise to the blur.
+			option.MOTION_BLUR_STRENGTH=Motion Blur Strength
+				option.MOTION_BLUR_STRENGTH.comment= The intensity of the applied blur. Lower is more intense.
 
 
 
