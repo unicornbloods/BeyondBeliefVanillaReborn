@@ -5,6 +5,7 @@ varying vec2 texcoord;
 varying vec4 glcolor;
 
 varying float matID;
+attribute vec4 mc_Entity;
 
 #define waterWaving
 #define waterWaveIntensity 0.50 //Will look broken over 1.45[0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00 1.05 1.10 1.15 1.20 1.25 1.30 1.35 1.40 1.45 1.50 1.55 1.60 1.65 1.70 1.75 1.80 1.85 1.90 1.95 2.00]
@@ -19,12 +20,15 @@ varying float matID;
 
 	varying vec3 wpos;
 
-	attribute vec4 mc_Entity;
-
 	const float PI = 3.1415927;
 #endif
 
 void main() {
+
+	matID = 0.0;
+	if(mc_Entity.x == 10008) matID = 1.0; // Water
+	if(mc_Entity.x == 13010) matID = 2.0; // tranclucents
+
 	#ifndef waterWaving
 		gl_Position = ftransform();
 	#else
@@ -36,9 +40,6 @@ void main() {
 		wpos = worldpos;
 
 		float displacement = 0.0;
-
-		if(mc_Entity.x == 10008) matID = 1.0; // Water
-		if(mc_Entity.x == 13010) matID = 2.0; // tranclucents
 
 		if(matID == 1.0) {
 			float fy = fract(worldpos.y + 0.0001);
