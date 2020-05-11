@@ -1,143 +1,40 @@
 #version 120
 
-#define CWATER 1 //[0 1 2 3]
-	#define AWATER 230 // [200 205 210 215 220 225 230 235 240 245 250 255]
-	#define RWATER 36 //[0 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 184 188 192 196 200 204 208 212 216 220 224 228 232 236 240 244 248 252 255]
-	#define GWATER 236 //[0 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 184 188 192 196 200 204 208 212 216 220 224 228 232 236 240 244 248 252 255]
-	#define BWATER 216 //[0 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 184 188 192 196 200 204 208 212 216 220 224 228 232 236 240 244 248 252 255]
-
-
+#define waterCustom 1 //[0 1 2 3]
+	#define waterAlpha 230 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
+	#define waterRed 36 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
+	#define waterGreen 130 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
+	#define waterBlue 185 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 
 uniform sampler2D lightmap;
 uniform sampler2D texture;
 
-varying float iswater;
-
-varying vec2 lmcoord;
 varying vec2 texcoord;
 varying vec4 glcolor;
 
-uniform float aspectRatio;
-uniform sampler2D colortex0;
-
-
-#include "/lib/Tonemaps.glsl"
-
-	const vec2 Bokeh[15] = vec2[15] (
-	    vec2(  0.2165,  0.0250 ),
-		vec2(  0.0000,  0.1500 ),
-		vec2( -0.2165,  0.0250 ),
-		vec2( -0.2165, -0.2250 ),
-		vec2( -0.0000, -0.3500 ),
-		vec2(  0.2165, -0.2250 ),
-		vec2(  0.4330,  0.1500 ),
-		vec2(  0.0000,  0.6000 ),
-		vec2( -0.4330,  0.1500 ),
-		vec2( -0.4330, -0.3500 ),
-		vec2( -0.0000, -0.6000 ),
-		vec2(  0.4330, -0.3500 ),
-		vec2(  0.6495,  0.2750 ),
-		vec2(  0.0000,  0.6500 ),
-		vec2( -0.6495,  0.2750 )
-	);
+// Being passed through buffer
+varying float matID; // 1
+varying vec2 lmcoord; // 2
 
 void main() {
 	vec4 color = texture2D(texture, texcoord) * glcolor;
 	color *= texture2D(lightmap, lmcoord);
-	vec4 bcolor = color;
 
-	
+	if (matID >= 0.1 && matID <= 1.5) {
+		#if waterCustom == 1
+			color = (color * vec4(waterRed, waterGreen, waterBlue, waterAlpha ) / 255.0f);
+		#elif waterCustom == 2
+			color = (texture2D(texture, texcoord)* vec4(waterRed, waterGreen, waterBlue, waterAlpha ) / 255.0f) * texture2D(lightmap, lmcoord);
+		#elif waterCustom == 3 
+			color = (vec4(waterRed, waterGreen, waterBlue, waterAlpha ) / 255.0f) * texture2D(lightmap, lmcoord);
+		#endif
+	}
 
-	#ifdef CWATER
-		if (iswater > 0.9) {
+/* DRAWBUFFERS:012 */
+	gl_FragData[0] = color; //gcolor
 
-			#if CWATER == 0
-			
-			#endif
-			#if CWATER == 1
-				color = (color * vec4(RWATER, GWATER, BWATER, AWATER ) / 255.0f) * texture2D(lightmap, lmcoord);
-			#endif
-			#if CWATER == 2
-				color = (texture2D(texture, texcoord)* vec4(RWATER, GWATER, BWATER, AWATER ) / 255.0f) * texture2D(lightmap, lmcoord);
-			#endif
-			#if CWATER == 3 
-				color = (vec4(RWATER, GWATER, BWATER, AWATER ) / 255.0f) * texture2D(lightmap, lmcoord);
-			#endif
+	// gl_FragData[n] = vec4(matID / 2.0, vec3(anythingElse)); //matID / <Number of matID's in vsh> to bring it down to a range of 0 - 1
+	gl_FragData[1] = vec4(matID * 0.5);
 
-
-
-			#if TONEMAP == 1
-			color.rgb = color.rgb;
-			#endif
-
-			#if TONEMAP == 2
-			color.rgb = BOTWTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 3
-			color.rgb = BWTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 4
-			color.rgb = VibrantTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 5
-			color.rgb = NegativeTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 6
-			color.rgb = SpoopyTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 7
-				color.rgb = BSLTonemap(color.rgb);
-
-				color.rgb = colorSaturation(color.rgb);
-			#endif
-		
-			gl_FragData[0] = color;
-		} else if (iswater < 0.9) {
-			
-					#if TONEMAP == 1
-			color.rgb = color.rgb;
-			#endif
-
-			#if TONEMAP == 2
-			color.rgb = BOTWTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 3
-			color.rgb = BWTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 4
-			color.rgb = VibrantTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 5
-			color.rgb = NegativeTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 6
-			color.rgb = SpoopyTonemap(color.rgb);
-			#endif
-
-			#if TONEMAP == 7
-				color.rgb = BSLTonemap(color.rgb);
-
-				color.rgb = colorSaturation(color.rgb);
-			#endif
-
-			gl_FragData[0] = color;
-		}
-	#endif
-
-	// 			vec2 offsetScale = vec2(1.0, aspectRatio) * 0.05;
-	// for(int i = 0; i < 15; i++){
-    // 	color.rgb += texture2D(colortex0, texcoord + Bokeh[i] * offsetScale).rgb;
-	// }
-	// color.rgb /= 15;
-
-/* DRAWBUFFERS:0 */
+	gl_FragData[2] = vec4(lmcoord.xy, 0.0, 1.0);
 }

@@ -3,7 +3,6 @@
 uniform sampler2D lightmap;
 uniform sampler2D texture;
 
-varying float ao;
 varying float isDirt;
 varying float isLava;
 varying vec2 lmcoord;
@@ -17,6 +16,7 @@ const float invNoiseRes = 1.0 / float(noiseTextureResolution);
 
 void main() {
 	vec4 color = texture2D(texture, texcoord) * glcolor;
+	// color.rgb = vec3(1); // Whiteworld
 	color *= texture2D(lightmap, lmcoord);
 
 /* DRAWBUFFERS:0 */

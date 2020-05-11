@@ -1,33 +1,33 @@
 #version 120
 
-#define WAVING_GRASS
-	#define WSPEED 0.40//[0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55 0.60 0.65 0.70 0.75]
+#define wavingFoliage
+	#define wavingSpeed 0.40//[0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55 0.60 0.65 0.70 0.75]
 
-#define WAVING_LEAVES //This option can cause performance hits in large forests.
+#define wavingLeaves //This option can cause performance hits in large forests.
 
 varying vec2 lmcoord;
 varying vec2 texcoord;
 varying vec4 glcolor;
 
-#ifdef WAVING_GRASS
-attribute vec3 mc_Entity;
-attribute vec2 mc_midTexCoord;
+#ifdef wavingFoliage
+	attribute vec3 mc_Entity;
+	attribute vec2 mc_midTexCoord;
 
-uniform int worldTime;
+	uniform int worldTime;
 
-uniform float rainStrength;
-uniform float wetness;
-uniform float night;
-uniform sampler2D noisetex;
-uniform float frameTimeCounter;
-uniform mat4 gbufferModelView;
-uniform mat4 gbufferModelViewInverse;
-uniform vec3 cameraPosition;
+	uniform float rainStrength;
+	uniform float wetness; 
+	uniform float night;
+	uniform sampler2D noisetex;
+	uniform float frameTimeCounter;
+	uniform mat4 gbufferModelView;
+	uniform mat4 gbufferModelViewInverse;
+	uniform vec3 cameraPosition;
 
-const int noiseTextureResolution = 64;
-const float invNoiseRes = 1.0 / float(noiseTextureResolution);
+	const int noiseTextureResolution = 64;
+	const float invNoiseRes = 1.0 / float(noiseTextureResolution);
 
-float lengthSquared2(vec2 v) { return dot(v, v); }
+	float lengthSquared2(vec2 v) { return dot(v, v); }
 
 	float approxScaledCos(float x) { //x from 0 to 1, y from -1 to 1
 		x = abs(fract(x) * 2.0 - 1.0);
@@ -56,15 +56,12 @@ void main() {
 	texcoord = (gl_TextureMatrix[0] * gl_MultiTexCoord0).xy;
 	lmcoord  = (gl_TextureMatrix[1] * gl_MultiTexCoord1).xy;
 
-#include "/lib/NightDarkness.glsl"
-
-
-#ifdef WAVING_GRASS
+#ifdef wavingFoliage
 	vec4 pos = gbufferModelViewInverse * (gl_ModelViewMatrix * gl_Vertex); //chunk coords -> world coords
 #endif
 
 	glcolor = gl_Color;
-		#ifdef WAVING_GRASS
+		#ifdef wavingFoliage
 
 			vec3 normal;
 		if (mc_Entity.x > 10000.0) {
@@ -78,15 +75,15 @@ void main() {
 				float amt = float(texcoord.y < mc_midTexCoord.y);
 
 				if (amt > 0.1) { //will always either be 0.0 or 1.0
-					pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, WSPEED);
+					pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, wavingSpeed);
 				}
 		}
 
 		else if (id == 13) { //leaves
 			normal = gl_NormalMatrix * gl_Normal;
 			
-			#ifdef WAVING_LEAVES
-				pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, WSPEED);
+			#ifdef wavingLeaves
+				pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, wavingSpeed);
 			#endif
 		}
 
@@ -100,14 +97,14 @@ void main() {
 					amt *= 1.5;
 
 					if (amt > 0.1) { //will always either be 0.0, 0.5 or 1.0
-						pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, WSPEED);
+						pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, wavingSpeed);
 					}
 		}
 		else if (id == 5) { //crops
 			normal = gl_NormalMatrix[1];
 
 				if (texcoord.y < mc_midTexCoord.y) {
-					pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, WSPEED);
+					pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, wavingSpeed);
 				}
 			}
 			else if (id == 6) { //sugar cane and other arbitrarily-tall plants

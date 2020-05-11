@@ -1,54 +1,57 @@
 #version 120
-/////////ADJUSTABLE VARIABLES//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////ADJUSTABLE VARIABLES//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#define NBrightness 0.50//[0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00]
-
-#define FGrain	
-	#define FGStrength 0.08
-
-/////////INTERNAL VARIABLES////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////INTERNAL VARIABLES////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-uniform sampler2D colortex0;
-
-varying vec2 texcoord;
-
-uniform float frameTimeCounter;
-
-/////////////////////////FUNCTIONS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////FUNCTIONS//////////////////////////////////////////////////////////////////////////////////
-
-/*#include "/lib/LensFlares.glsl"*/
-
-float randFilmGrain(in vec2 refcoord) { //just a noise function, calculates noise based on the given coord
-    return fract(sin(dot(refcoord.st, vec2(12.9898, 78.233))) * 43758.5453);
-}
-
-void FilmGrain(inout vec3 color) {
-    float brightness = dot(color.rgb, vec3(0.2627, 0.6780, 0.0593)); //gets brightness of screen
-    float strength = FGStrength * (1.0 - brightness * 1.9); //applies brightness to strength
-    vec2 refcoord = texcoord.st + frameTimeCounter * 0.01; //makes the texcoord move over time because the offset is frameTimeCounter which changes after every frame multiplied with 0.01 to make it slower than it is by default
-    color += vec3(randFilmGrain(refcoord + 0.1), randFilmGrain(refcoord), randFilmGrain(refcoord - 0.1)) * strength; //use the moving texcoord to make the whole noise move and use offsets for the red and blue channel to make the noise colored, without the offset red, green and blue would overlap each other and the noise would be white/gray
-}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////MAIN//////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-void main() {
-	vec3 color = texture2D(colortex0, texcoord).rgb;
+/* #### Adjustable Variables #### */
 
-// Adjusts brightness by dulling colors
-	color = color * NBrightness;
+	//#define lensMonochrome
+		#define lMonoRed 255 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
+		#define lMonoGreen 105 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
+		#define lMonoBlue 205 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
+		#define lMonoAlpha 0.75 //[0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00]
 
-	#ifdef FGrain
-		FilmGrain(color);
+	#define NETHER_REFRACTION
+		#define NETHER_REFRACTION_AMOUNT 0.55 ///[0.0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0]
+		#define NETHER_REFRACTION_ANIMATION_SPEED 0.75 //[0.0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0]
+
+/* #### Variables #### */
+
+	uniform sampler2D colortex0;
+
+	varying vec2 texcoord;
+
+	uniform float frameTimeCounter;
+
+	uniform float aspectRatio;
+
+/* #### Functions #### */
+
+	#ifdef NETHER_REFRACTION
+		vec2 NetherRefraction(in vec2 coord) {
+			vec2 refraction = vec2(sin(frameTimeCounter * 1.75 * NETHER_REFRACTION_ANIMATION_SPEED + texcoord.x * 50.0 + texcoord.y * 25.0), cos(frameTimeCounter * 2.5 * NETHER_REFRACTION_ANIMATION_SPEED + texcoord.y * 100.0 + texcoord.x * 25.0));
+			return coord + refraction * 0.002 * NETHER_REFRACTION_AMOUNT;
+			return coord;
+		}
 	#endif
 
-/* DRAWBUFFERS:0 */
-	gl_FragData[0] = vec4(color, 1.0); //colortex0
-}
+/* #### Includes #### */
+
+/* #### VoidMain #### */
+
+	void main() {
+
+		vec2 coord = texcoord.st;
+
+		#ifdef NETHER_REFRACTION
+			coord = NetherRefraction(coord);
+		#endif
+
+		vec4 color = vec4(texture2D(colortex0, coord).rgb, 1.0); //always use the "refracted" coord instead of texcoord after the refraction
+
+		#ifdef lensMonochrome
+			float brightness = dot(color.rgb, vec3(0.299, 0.587, 0.114)); // or (color.r + color.g + color.b) / 3
+			vec3 tint = vec3(lMonoRed, lMonoGreen, lMonoBlue) / 255; // or vec3(1.0) - vec3(red, green, blue), idk how you want it
+			color.rgb = mix(color.rgb, vec3(brightness * tint.r, brightness * tint.g, brightness * tint.b), lMonoAlpha);
+		#endif
+		
+		gl_FragData[0] = vec4(color);
+	}

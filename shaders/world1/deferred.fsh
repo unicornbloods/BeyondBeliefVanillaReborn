@@ -42,13 +42,13 @@ const float ambientOcclusionLevel = 1.0; //Vanilla AO[0.0 0.1 0.2 0.3 0.4 0.5 0.
 #endif
 
 float ld(float depth) {
-   return (2.0 * near) / (far + near - depth * (far - near));
+	return (2.0 * near) / (far + near - depth * (far - near));
 }
 
 //from dither.glsl
 float bayer2(vec2 a){
-    a = floor(a);
-    return fract( dot(a, vec2(.5, a.y * .75)) );
+	a = floor(a);
+	return fract( dot(a, vec2(.5, a.y * .75)) );
 }
 
 #define bayer4(a)   (bayer2( .5*(a))*.25+bayer2(a))
@@ -64,10 +64,9 @@ float bayer2(vec2 a){
 #define AOAmount 0.55	//[0.50 0.55 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00 1.05 1.10 1.15 1.2 1.25 1.30 1.35 1.40 1.45 1.50 1.55 1.60 1.65 1.70 1.75 1.80 1.85 1.90 1.95 2.00]
 #define AOSamples 15 //[10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 105 110 115 120 125 130 135 140 145 150 155 160 165 170 175 180 185 190 195 200]
 
-
 vec2 offsetDist(float x, int s){
 	float n = fract(x*1.414)*3.1415;
-    return vec2(cos(n),sin(n))*x/s;
+	return vec2(cos(n),sin(n))*x/s;
 }
 
 float dbao(sampler2D depth, float dither){
@@ -114,9 +113,10 @@ void main(){
 	float dither = bayer64(gl_FragCoord.xy);
 
 	#ifdef SSAO
-	color.rgb *= dbao(depthtex0, dither);
+		color.rgb *= dbao(depthtex0, dither);
 	#endif
 
+	/* DRAWBUFFERS:0 */
 
 	gl_FragData[0] = color;
 }
