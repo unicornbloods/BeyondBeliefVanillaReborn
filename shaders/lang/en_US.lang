@@ -77,7 +77,6 @@ screen.Global= Global
 	option.CELSHADING= Celshading
 		option.CELSHADING.comment= Enables / Disables Celshading. Celshading is a borderlandsesque block bordering. §a Little to no performance impact.
 
-
 	screen.sCSBOX= Custom Box
 		option.CSBOX= Toggle
 			option.CSBOX.comment= Enables custom selection box color. Enabling will also change leads to the selected color Sadly this is unavoidable. §a Little to no performance impact.
@@ -87,6 +86,58 @@ screen.Global= Global
 			option.CSG.comment= Changes the Green value of the Custom Box color using RGB color spectrum.
 		option.CSB= §9Blue
 			option.CSB.comment= Changes the Blue value of the Custom Box color using RGB color spectrum.
+
+	screen.water= water
+
+		screen.swaterColor= Color
+			option.waterCustom= Type
+				option.waterCustom.comment= Change water color type. §a Little to no performance impact.
+				value.waterCustom.0=Off
+				value.waterCustom.1=Textured + Biome
+				value.waterCustom.2=Textured
+				value.waterCustom.3=No texture
+
+			option.waterRed= §cRed
+				option.waterRed.comment= Changes the Red value of the water color using RGBA color spectrum.
+			option.waterGreen= §aGreen
+				option.waterGreen.comment= Changes the Green value of the water color using RGBA color spectrum.
+			option.waterBlue= §9Blue
+				option.waterBlue.comment= Changes the Blue value of the water color using RGBA color spectrum.
+			option.waterAlpha= Alpha
+				option.waterAlpha.comment= Changes the Alpha value of the water color using RGBA color spectrum. Alpha is the opacity or transparency of a color.
+
+		screen.swaterWaving= Waves
+			option.waterWaving= Waves
+				option.waterWaving.comment= Enables / Disables water waves. §a Little to no performance impact.
+			option.waterWaveIntensity= Wave Intensity
+				option.waterWaveIntensity.comment= Height and frequency of waves
+			option.waterWaveSpeed= Wave Speed
+				option.waterWaveSpeed.comment= Animation speed of the waving
+
+		screen.swaterFog= Fog
+			option.waterFog= Fog
+				option.waterFog.comment= Enables / Disables water fog. §a Little to no performance impact.
+			option.waterFogDensity= Underwater Density
+				option.waterFogDensity.comment= Changes the fog density when viewed from within water.
+			option.waterFogDensityAbove= Abovewater Density
+				option.waterFogDensityAbove.comment= Changes the fog density when viewed from above water.
+	
+		screen.swavingFoliage= Waving Plants
+			option.wavingFoliage= Foliage
+				option.wavingFoliage.comment= Enables / Disables waving plants. §6 Moderate performance impact in forested areas.
+			option.wavingLeaves= Leaves
+				option.wavingLeaves.comment= Enables / Disables waving leaves. §6 Moderate performance impact in forested areas.
+			option.wavingSpeed= Speed
+				option.wavingSpeed.comment= Speed at which the plants / leaves sway.
+
+		screen.swaterRefraction= Refraction
+			option.UNDERWATER_REFRACTION=Underwater Refractions
+				option.UNDERWATER_REFRACTION.comment= Enables / Disables Refractiong generation while underwater. §a Little to no performance impact.
+			option.UNDERWATER_REFRACTION_AMOUNT=Intensity
+				option.UNDERWATER_REFRACTION_AMOUNT.comment= Changes the Intensity of the refraction effect.
+			option.UNDERWATER_REFRACTION_ANIMATION_SPEED=Speed
+				option.UNDERWATER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the refraction effect.
+
 
 
 
@@ -119,49 +170,6 @@ screen.Overworld= §a Overworld
 				option.cloudsBlue.comment= Changes the Blue value of the cloud color using RGBA color spectrum.
 			option.cloudsAlpha= Alpha
 				option.cloudsAlpha.comment= Changes the Alpha value of the cloud color using a percentage system. Alpha is the opacity or transparency of a color.
-
-		screen.water= water
-
-			screen.swaterColor= Color
-				option.waterCustom= Type
-					option.waterCustom.comment= Change water color type. §a Little to no performance impact.
-					value.waterCustom.0=Off
-					value.waterCustom.1=Textured + Biome
-					value.waterCustom.2=Textured
-					value.waterCustom.3=No texture
-
-				option.waterRed= §cRed
-					option.waterRed.comment= Changes the Red value of the water color using RGBA color spectrum.
-				option.waterGreen= §aGreen
-					option.waterGreen.comment= Changes the Green value of the water color using RGBA color spectrum.
-				option.waterBlue= §9Blue
-					option.waterBlue.comment= Changes the Blue value of the water color using RGBA color spectrum.
-				option.waterAlpha= Alpha
-					option.waterAlpha.comment= Changes the Alpha value of the water color using RGBA color spectrum. Alpha is the opacity or transparency of a color.
-
-			screen.swaterWaving= Waves
-				option.waterWaving= Waves
-					option.waterWaving.comment= Enables / Disables water waves. §a Little to no performance impact.
-				option.waterWaveIntensity= Wave Intensity
-					option.waterWaveIntensity.comment= Height and frequency of waves
-				option.waterWaveSpeed= Wave Speed
-					option.waterWaveSpeed.comment= Animation speed of the waving
-
-			screen.swaterFog= Fog
-				option.waterFog= Fog
-					option.waterFog.comment= Enables / Disables water fog. §a Little to no performance impact.
-				option.waterFogDensity= Underwater Density
-					option.waterFogDensity.comment= Changes the fog density when viewed from within water.
-				option.waterFogDensityAbove= Abovewater Density
-					option.waterFogDensityAbove.comment= Changes the fog density when viewed from above water.
-		
-			screen.swavingFoliage= Waving Plants
-				option.wavingFoliage= Foliage
-					option.wavingFoliage.comment= Enables / Disables waving plants. §6 Moderate performance impact in forested areas.
-				option.wavingLeaves= Leaves
-					option.wavingLeaves.comment= Enables / Disables waving leaves. §6 Moderate performance impact in forested areas.
-				option.wavingSpeed= Speed
-					option.wavingSpeed.comment= Speed at which the plants / leaves sway.
 
 		screen.OFog= Fog
 			option.OFOG= Fog
