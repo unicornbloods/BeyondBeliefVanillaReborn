@@ -238,7 +238,7 @@ screen.Nether= §c Nether
 
 screen.End= §d End
 
-	screen.EFOG= Fog
+	screen.EFog= Fog
 		option.EFOG= Fog
 			option.EFOG.comment= Enables / Disables fog generation in the End dimension. §a Little to no performance impact.
 			value.EFOG.0= Vanilla
