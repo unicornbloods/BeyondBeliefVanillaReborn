@@ -1,0 +1,254 @@
+// 14.05.2020
+// translator: fr0zert
+
+// Key
+
+# §a Little to no performance impact. // Нет влияния на производительность.
+# §e Slight performance impact. // Незначительное влияние на производительность.
+# §6 Moderate performance impact. // Среднее влияние на производительность.
+# §c High performance impact. // Высокое влияние на производительность.
+# §4 Extreme performance impact. // Экстремальное влияние на производительность.
+
+// Global
+
+screen.Global= Общие настройки
+
+	screen.Tonemap= Цветовой тон
+		screen.BSL= BSL
+			screen.BSL.comment= Предустановленные настройки карты тонов BSL. Tatsu дал разрешение на использование своей карты тонов.
+			option.TonemapExposure= Экспозиция
+				option.TonemapExposure.comment= Настройка экспозиции.
+			option.TonemapWhiteCurve= Белая кривая
+				option.TonemapWhiteCurve.comment= Управление белой кривой.
+			option.TonemapLowerCurve= Нижняя кривая
+				option.TonemapLowerCurve.comment= Управление нижней кривой.
+			option.TonemapUpperCurve= Верхняя кривая
+				option.TonemapUpperCurve.comment= Управление верхней кривой.
+			option.BSLSaturation= Насыщение
+				option.BSLSaturation.comment= Управление насыщенностью.
+			option.BSLVibrance= Вибрация
+				option.BSLVibrance.comment= Управление вибрацией.
+
+		option.SWIZZLE= Микширование каналов
+		option.TONEMAP= Пресеты
+			option.TONEMAP.comment= Изменить пресет карты тонов. §a Нет влияния на производительность.
+			value.TONEMAP.1=Vanilla
+			value.TONEMAP.2=BOTW
+			value.TONEMAP.3=Black and White
+			value.TONEMAP.4=Negative
+			value.TONEMAP.5=Spoopy
+			value.TONEMAP.6=BSL
+
+	option.FGrain= Зернистость
+		option.FGrain.comment= Добавляет зернистый эффект на экран в областях с недостаточным освещением, как в реальной жизни. §a Нет влияния на производительность.
+
+	screen.lensGlobal= Наложение цвета
+
+		screen.monochrome= Монохромный эффект
+			option.lensMonochrome= монохромный эффект
+				option.lensMonochrome.comment= Включает / выключает монохромный эффект. §a Нет влияния на производительность.
+			option.lMonoRed= §cКрасный
+				option.lMonoRed.comment= Изменяет значение красного цвета в палитре, используя цветовое пространство RGBA.
+			option.lMonoGreen= §aЗеленый
+				option.lMonoGreen.comment= Изменяет значение зеленого цвета в палитре, используя цветовое пространство RGBA.
+			option.lMonoBlue= §9Синий
+				option.lMonoBlue.comment= Изменяет значение синего цвета в палитре, используя цветовое пространство RGBA.
+			option.lMonoAlpha= Прозрачность
+				option.lMonoAlpha.comment= Изменяет прозрачность цвета, используя цветовое пространство RGBA.
+
+	screen.snightEye= Night Eye
+		option.nightEye= Night Eye
+			option.nightEye.comment= Включает / отключает эффект Night Eye. Эффект Night Eye обесцвечивает более темное окружение, имитируя реальную жизнь §a Нет влияния на производительность.
+		option.ndeSat= Десатурация
+			option.ndeSat.comment= Уровень десатурации в темных участках.
+
+	screen.AO= Ambient Occlusion
+		option.SSAO= SSAO Toggle
+			option.SSAO.comment= Переключается на SSAO вместо стандартного. §a Нет влияния на производительность.
+		option.ambientOcclusionLevel=Усиление стандартного AO
+			option.ambientOcclusionLevel.comment= Усиление стандартного AO. §a Нет влияния на производительность.
+			value.ambientOcclusionLevel.0.0=выключен
+			value.ambientOcclusionLevel.1.0=Vanilla
+		option.AOAmount= Усиление SSAO
+			option.AOAmount.comment= Увеличивает силу эффекта SSAO.
+		option.AOSamples= SSAO Samples
+			option.AOSamples.comment=Более высокие значения выборок повышают качество SSAO, но снижают частоту кадров.
+
+	option.CELSHADING= Обводка краёв
+		option.CELSHADING.comment= Включает / отключает обводку. §a Нет влияния на производительность.
+
+	screen.sCSBOX= Обводка блоков
+		option.CSBOX= Toggle
+			option.CSBOX.comment= Включает пользовательскую обводку блоков §a Нет влияния на производительность.
+		option.CSR= §cКрасный
+			option.CSR.comment= Изменяет значение красного цвета в палитре, используя цветовое пространство RGBA.
+		option.CSG= §aЗеленый 
+			option.CSG.comment= Изменяет значение зеленого цвета в палитре, используя цветовое пространство RGBA.
+		option.CSB= §9Синий
+			option.CSB.comment= Изменяет значение синего цвета в палитре, используя цветовое пространство RGBA.
+
+	screen.water= Вода/Волны
+
+		screen.swaterColor= Цвет
+			option.waterCustom= Тип
+				option.waterCustom.comment= Изменяет тип наложения цвета. §a Нет влияния на производительность.
+				value.waterCustom.0=Выключен
+				value.waterCustom.1=Цвет + Биом
+				value.waterCustom.2=Цвет
+				value.waterCustom.3=Без цвета
+
+			option.waterRed= §cКрасный
+				option.waterRed.comment= Изменяет значение красного цвета в палитре, используя цветовое пространство RGBA.
+			option.waterGreen= §aЗеленый
+				option.waterGreen.comment= Изменяет значение зеленого цвета в палитре, используя цветовое пространство RGBA.
+			option.waterBlue= §9Синий
+				option.waterBlue.comment= Изменяет значение синего цвета в палитре, используя цветовое пространство RGBA.
+			option.waterAlpha= Прозрачность
+				option.waterAlpha.comment= Изменяет прозрачность цвета воды, используя цветовое пространство RGBA.
+
+		screen.swaterWaving= Волны
+			option.waterWaving= Волны
+				option.waterWaving.comment= Включает / отключает волны на воде.§a Нет влияния на производительность.
+			option.waterWaveIntensity= Интенсивность волн
+				option.waterWaveIntensity.comment= Высота и частота волн
+			option.waterWaveSpeed= Скорость волны
+				option.waterWaveSpeed.comment= Скорость анимации волны
+
+		screen.swaterFog= Туман в воде
+			option.waterFog= Туман в воде
+				option.waterFog.comment= Включает / отключает туман под водой. §a Нет влияния на производительность.
+				value.waterFog.0= Vanilla
+				value.waterFog.1= Colored
+			option.waterFogDensity= Плотность воды
+				option.waterFogDensity.comment= Изменяет плотность воды при взгляде под водой.
+			option.waterFogDensityAbove= Надводная плотность
+				option.waterFogDensityAbove.comment= Изменяет плотность тумана при взгляде сверху от воды.
+
+		screen.swaterRefraction= Искажение зрения
+			option.UNDERWATER_REFRACTION=Подводное преломление
+				option.UNDERWATER_REFRACTION.comment= Включает / отключает генерацию преломления под водой. §a Нет влияния на производительность.
+			option.UNDERWATER_REFRACTION_AMOUNT=Интенсивность
+				option.UNDERWATER_REFRACTION_AMOUNT.comment= Изменяет интенсивность эффекта преломления.
+			option.UNDERWATER_REFRACTION_ANIMATION_SPEED=Скорость
+				option.UNDERWATER_REFRACTION_ANIMATION_SPEED.comment= Изменяет скорость волны эффекта преломления.
+
+		screen.motionblur= Размытие в движении
+			option.MOTION_BLUR=Размытие в движении
+				option.MOTION_BLUR.comment= Включает / выключает размытие в движении. Популярный эффект в fps-играх, которые имитируют ваше зрение, когда вы быстро поворачиваете. §a Нет влияния на производительность.
+			option.MOTION_BLUR_NOISE=Шум размытия в движении
+				option.MOTION_BLUR_NOISE.comment= Добавляет шум в эффект
+			option.MOTION_BLUR_STRENGTH=Сила размытия в движении
+				option.MOTION_BLUR_STRENGTH.comment= Интенсивность применяемого размытия.
+
+
+
+// Overworld
+
+screen.Overworld= §a Настройки для верхнего мира
+
+	screen.DepthOfField= Глубина резкости
+		option.Depth_of_Field= Глубина резкости
+			option.Depth_of_Field.comment= Включает эффект глубины резкости, когда он «фокусирует» ваше зрение на объекте при внимательном рассмотрении, путем размытия фона.§e Незначительное влияние на производительность.
+		option.Distance_Blur= Расстояние блюра
+			option.Distance_Blur.comment= Изменяет эффект глубины резкости на эффект - который вместо этого размывает удаленные объекты.§e Незначительное влияние на производительность.
+		option.DoF_Strength= Сила
+			option.DoF_Strength.comment= Сила фокусирующего эффекта.(Размытие вокруг усиливаеться)
+		option.Dof_Distance_View= Расстояние
+			option.Dof_Distance_View.comment= Насколько близко объекты должны быть для эффекта "глубины резкости" (если он включен).
+		option.DOF_FOCAL= Зона фокуса
+			option.DOF_FOCAL.comment= Размер зоны фокусировки объектива.
+
+	screen.Environment= Окружающая среда
+
+		screen.sclouds= Облака
+			option.cloudsCustom= Кастомные облака
+				option.cloudsCustom.comment= Включает / отключает пользовательскую раскраску облаков. §a Нет влияния на производительность.
+			option.cloudsRed= §cКрасный
+				option.cloudsRed.comment= Изменяет значение красного цвета в палитре, используя цветовое пространство RGBA.
+			option.cloudsGreen= §aЗеленый
+				option.cloudsGreen.comment= Изменяет значение зеленого цвета в палитре, используя цветовое пространство RGBA.
+			option.cloudsBlue= §9Синий
+				option.cloudsBlue.comment= Изменяет значение синего цвета в палитре, используя цветовое пространство RGBA.
+			option.cloudsAlpha= Прозрачность
+				option.cloudsAlpha.comment= Изменяет прозрачность цвета облаков, используя цветовое пространство RGBA.
+
+		screen.OFog= Туман
+			option.OFOG= Туман
+				option.OFOG.comment= Включает / отключает генерацию тумана. §a Нет влияния на производительность.
+				value.OFOG.0= Vanilla
+				value.OFOG.1= Colored
+			option.OFOGR= §cКрасный
+				option.OFOGR.comment= Изменяет значение красного цвета в палитре, используя цветовое пространство RGBA.
+			option.OFOGG= §aЗеленый
+				option.OFOGG.comment= Изменяет значение зеленого цвета в палитре, используя цветовое пространство RGBA.
+			option.OFOGB= §9Синий
+				option.OFOGB.comment= Изменяет значение синего цвета в палитре, используя цветовое пространство RGBA.
+			option.OFOGI= Густота
+				option.OFOGI.comment= Густота тумана.
+
+		screen.swavingFoliage= Движения растительности
+			option.wavingFoliage= Трава
+				option.wavingFoliage.comment= Включает / выключает движения травы. §6 Moderate performance impact in forested areas.
+			option.wavingLeaves= Листва
+				option.wavingLeaves.comment= Включает / выключает движения листвы. §6 Moderate performance impact in forested areas.
+			option.wavingSpeed= Скорость
+				option.wavingSpeed.comment= Скорость, с которой растения качаются.
+
+// Nether
+
+screen.Nether= §c Настройки для нижнего мира
+
+	option.NetherDarkness= Адская тьма
+		option.NetherDarkness.comment= Изменяет общую тьму ада. §a Нет влияния на производительность.
+
+	screen.Nfog= Туман
+		option.NFOG= Туман
+			option.NFOG.comment= Включает / отключает генерацию тумана в измерении. §a Нет влияния на производительность.
+		option.NFOGR= §cКрасный
+			option.NFOGR.comment= Изменяет значение красного цвета в палитре, используя цветовое пространство RGBA.
+		option.NFOGG= §aЗеленый
+			option.NFOGG.comment= Изменяет значение зеленого цвета в палитре, используя цветовое пространство RGBA.
+		option.NFOGB= §9Синий
+			option.NFOGB.comment= Изменяет значение синего цвета в палитре, используя цветовое пространство RGBA.
+		option.NFOGA= Прозрачность
+			option.NFOGA.comment= Прозрачность цветов тумана.
+		option.NFOGI= Густота
+			option.NFOGI.comment= Густота тумана.
+
+	screen.NDepthOfField= Глубина резкости
+		option.NDepth_of_Field= Глубина резкости
+			option.NDepth_of_Field.comment= Включает эффект глубины резкости, когда он «фокусирует» ваше зрение на объекте при внимательном рассмотрении, путем размытия фона. §e Незначительное влияние на производительность.
+		option.NDistance_Blur= Расстояние блюра
+			option.NDistance_Blur.comment= Изменяет эффект глубины резкости на эффект - который вместо этого размывает удаленные объекты. §e Незначительное влияние на производительность.
+		option.NDoF_Strength= Сила
+			option.NDoF_Strength.comment= Сила фокусирующего эффекта.(Размытие вокруг усиливаеться)
+		option.NDof_Distance_View= Расстояние
+			option.NDof_Distance_View.comment= Насколько близко объекты должны быть для эффекта "глубины резкости" (если он включен).
+		option.NDOF_FOCAL= Зона фокуса
+			option.NDOF_FOCAL.comment= Размер зоны фокусировки объектива.
+
+	screen.netherRefraction= Эффект жары
+		option.NETHER_REFRACTION= Эффект жары
+			option.NETHER_REFRACTION.comment= Добавляет эффект преломления, похожий на подводный, для имитации горячей среды.§e Незначительное влияние на производительность.
+		option.NETHER_REFRACTION_AMOUNT= Интенсивность 
+			option.NETHER_REFRACTION_AMOUNT.comment= Изменяет интенсивность эффекта преломления.
+		option.NETHER_REFRACTION_ANIMATION_SPEED= Скорость преломления
+			option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Изменяет скорость волны эффекта преломления.
+
+// End
+
+screen.End= §d Настройки для края
+
+	screen.EFog= Туман
+		option.EFOG= Туман
+			option.EFOG.comment= Включает / отключает генерацию тумана в измерении Энда. §a Нет влияния на производительность.
+			value.EFOG.0= Vanilla
+			value.EFOG.1= Colored
+		option.EFOGR= §cКрасный
+			option.EFOGR.comment= Изменяет значение красного цвета в палитре, используя цветовое пространство RGBA.
+		option.EFOGG= §aЗеленый
+			option.EFOGG.comment= Изменяет значение зеленого цвета в палитре, используя цветовое пространство RGBA.
+		option.EFOGB= §9Синий
+			option.EFOGB.comment= Изменяет значение синего цвета в палитре, используя цветовое пространство RGBA.
+		option.EFOGI= Густота
+			option.EFOGI.comment= Густота тумана.
