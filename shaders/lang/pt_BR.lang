@@ -1,0 +1,260 @@
+
+// translator: ArataKamikaze
+// note: i'm not sure if the translation is correct, if there's any problem please contact me
+// tradutor: ArataKamikaze
+// nota: não tenho certeza se a tradução está correta, se houver qualquer problema, por favor me contate
+
+
+// Key
+
+# §a Pouco ou nenhum impacto na performance.
+# §e Leve impacto na performance.
+# §6 Impacto moderado na performance.
+# §c Alto impacto na performance.
+# §4 Extremo impacto na performance.
+
+
+// Global
+
+screen.Global= Global
+
+	screen.Tonemap= Tonemap
+		screen.BSL= BSL
+			screen.BSL.comment= Configurações de predefinições do Tonemap BSL. Tatsu deu permissão para o uso do tonemap.
+			option.TonemapExposure= Exposição
+				option.TonemapExposure.comment= Controla a exposição.
+			option.TonemapWhiteCurve= Curva de brancos
+				option.TonemapWhiteCurve.comment= Controla a curva de brancos.
+			option.TonemapLowerCurve= Curva inferior
+				option.TonemapLowerCurve.comment= Controla a curva inferior.
+			option.TonemapUpperCurve= Curva superior
+				option.TonemapUpperCurve.comment= Controla a curva superior.
+			option.BSLSaturation= Saturação
+				option.BSLSaturation.comment= Controla a saturação.
+			option.BSLVibrance= Vibratibilidade
+				option.BSLVibrance.comment= Controla a vibratibilidade.
+
+		option.SWIZZLE= swizzle
+		option.TONEMAP= Predefinição
+			option.TONEMAP.comment= Troca a predefinição do tonemap. §a Pouco ou nenhum impacto na performance.
+			value.TONEMAP.1=Vanilla
+			value.TONEMAP.2=BOTW
+			value.TONEMAP.3=Preto e branco
+			value.TONEMAP.4=Negativo
+			value.TONEMAP.5=Spoopy
+			value.TONEMAP.6=BSL
+
+	option.FGrain= Granulado de filme
+		option.FGrain.comment= Adiciona um efeito granulado para a tela em areas com baixa luminosidade, como na vida real. §a Pouco ou nenhum impacto na performance.
+
+	screen.lensGlobal= Lentes
+
+		screen.Monochrome= Monocromia
+			option.lensMonochrome= Efeito monocromático
+				option.lensMonochrome.comment= Habilita / Desabilita O efeito de lente monocromatica. §a Pouco ou nenhum impacto na performance.
+			option.lMonoRed= §cVermelho
+				option.lMonoRed.comment= Troca o valor de Vermelho da lente monocromatica usando o espectro de cores RGBA.
+			option.lMonoGreen= §aVerde
+				option.lMonoGreen.comment= Troca o valor de Verde da lente monocromatica usando o espectro de cores RGBA.
+			option.lMonoBlue= §9Azul
+				option.lMonoBlue.comment= Troca o valor de Azul da lente monocromatica usando o espectro de cores RGBA.
+			option.lMonoAlpha= Alpha
+				option.lMonoAlpha.comment= Troca o valor de Alpha da lente monocromatica usando o espectro de cores RGBA. Alpha é a opacidade ou transparencia de uma cor.
+
+	screen.snightEye= Olho noturno
+		option.nightEye= Olho noturno
+			option.nightEye.comment= Habilita / Desabilita o efeito de olho noturno. O efeito de olho noturno remove a saturação em ambientes escuros para simular a vida real. §a Pouco ou nenhum impacto na performance.
+		option.ndeSat= Dessaturação
+			option.ndeSat.comment= Nível de remoção de saturação em ambientes escuros.
+
+	screen.AO= Oclusão ambiente
+		option.SSAO= Alternar SSAO
+			option.SSAO.comment= Ativa o SSAO ao invés do AO Vanilla. §a Pouco ou nenhum impacto na performance.
+		option.ambientOcclusionLevel=Força do ao Vanilla
+			option.ambientOcclusionLevel.comment= Vanilla AO strength. §a Pouco ou nenhum impacto na performance.
+			value.ambientOcclusionLevel.0.0=Desligado
+			value.ambientOcclusionLevel.1.0=Vanilla
+		option.AOAmount= Força do SSAO
+			option.AOAmount.comment= Aumenta a força do SSAO.
+		option.AOSamples= Amostras do SSAO
+			option.AOSamples.comment=Número de amostras mais alto aumenta a qualidade do SSAO mas diminuem o fps.
+
+	option.CELSHADING= Celshading
+		option.CELSHADING.comment= Habilita / Desabilita o Celshading. Celshading é um efeito de borda de blocos tipo Borderlands. §a Pouco ou nenhum impacto na performance.
+
+	screen.sCSBOX= Caixa customizada
+		option.CSBOX= Ativar
+			option.CSBOX.comment= Habilita a cor customizada da caixa de seleção. ativar também irá mudar o laço para a cor selecionada, infelizmente isso é inevitável. §a Pouco ou nenhum impacto na performance.
+		option.CSR= §cVermelho
+			option.CSR.comment= Troca o valor de Vermelho da caixa customizada usando o espectro de cores RGB.
+		option.CSG= §aVerde
+			option.CSG.comment= Troca o valor de Verde da caixa customizada usando o espectro de cores RGB.
+		option.CSB= §9Azul
+			option.CSB.comment= Troca o valor de Azul da caixa customizada usando o espectro de cores RGB.
+
+	screen.water= Água
+
+		screen.swaterColor= Cor
+			option.waterCustom= Tipo
+				option.waterCustom.comment= troca o tipo da água.§a Pouco ou nenhum impacto na performance.
+				value.waterCustom.0=Desligado
+				value.waterCustom.1=Texturizado + Bioma
+				value.waterCustom.2=Texturizado
+				value.waterCustom.3=sem textura
+
+			option.waterRed= §cVermelho
+				option.waterRed.comment= Troca o valor de Vermelho da água usando o espectro de cores RGBA.
+			option.waterGreen= §aVerde
+				option.waterGreen.comment= Troca o valor de Verde da água usando o espectro de cores RGBA.
+			option.waterBlue= §9Azul
+				option.waterBlue.comment= Troca o valor de azul da água usando o espectro de cores RGBA.
+			option.waterAlpha= Alpha
+				option.waterAlpha.comment= Troca o valor de Alpha da água usando o espectro de cores RGBA.Alpha é a opacidade ou transparência de uma cor.
+
+		screen.swaterWaving= Ondas
+			option.waterWaving= Ondas
+				option.waterWaving.comment= Habilita / Desabilita as ondas da água. §a Pouco ou nenhum impacto na performance.
+			option.waterWaveIntensity= Intensidade das ondas
+				option.waterWaveIntensity.comment= Altura e frequência das ondas
+			option.waterWaveSpeed= Velocidade das ondas
+				option.waterWaveSpeed.comment= Velocidade da animação da onda
+
+		screen.swaterFog= Neblina
+			option.waterFog= Neblina
+				option.waterFog.comment= Habilita / Desabilita a neblina da água. §a Pouco ou nenhum impacto na performance.
+				value.waterFog.0= Vanilla
+				value.waterFog.1= Colorizada
+			option.waterFogDensity= Densidade embaixo da água
+				option.waterFogDensity.comment= muda a densidade da neblina quando vista por debaixo da água.
+			option.waterFogDensityAbove= Densidade sobre a água
+				option.waterFogDensityAbove.comment= Muda a densidade da neblina quando vista sobra a água
+
+		screen.swavingFoliage= plantas balançando
+			option.wavingFoliage= Folhagem
+				option.wavingFoliage.comment= Habilita / Desabilita as plantas balançando.§6 Impacto moderado na performance em areas florestadas.
+			option.wavingLeaves= Folhas
+				option.wavingLeaves.comment= Habilita / Desabilita as folhas balançando. §6 Impacto moderado na performance em areas florestadas.
+			option.wavingSpeed= Velocidade
+				option.wavingSpeed.comment= Velocidade na qual plantas / folhas balançam.
+
+		screen.swaterRefraction= Refração
+			option.UNDERWATER_REFRACTION=Refração embaixo da água
+				option.UNDERWATER_REFRACTION.comment= Habilita / Desabilita a geração de refração embaixo da água. §a Pouco ou nenhum impacto na performance.
+			option.UNDERWATER_REFRACTION_AMOUNT=Intensidade
+				option.UNDERWATER_REFRACTION_AMOUNT.comment= Muda a intensidade do efeito de refração.
+			option.UNDERWATER_REFRACTION_ANIMATION_SPEED=Velocidade
+				option.UNDERWATER_REFRACTION_ANIMATION_SPEED.comment= Muda a velocidade do efeito de refração.
+
+		screen.motionblur= Desfoque de movimento
+			option.MOTION_BLUR=Desfoque de Movimento
+				option.MOTION_BLUR.comment= Habilita / Desabilita o desfoque de movimento. um efeito popular em jogos de fps que simula a sua visão desfocando conforme você rapidamente vira.§a Pouco ou nenhum impacto na performance.
+			option.MOTION_BLUR_NOISE=Ruido do desfoque de movimento
+				option.MOTION_BLUR_NOISE.comment= Adiciona o desfoque para o desfoque
+			option.MOTION_BLUR_STRENGTH=Força do desfoque de movimento
+				option.MOTION_BLUR_STRENGTH.comment= A intensidade do desfoque aplicado. Menor é mais intenso.
+
+
+
+// Overworld
+
+screen.Overworld= §a Overworld
+
+	screen.DepthOfField= Profundidade de visão
+		option.Depth_of_Field= Profundidade de visão
+			option.Depth_of_Field.comment= Habilita o efeito de profundidade de visão onde ele "foca" a sua visão em um objeto quando olhando de perto por desfocar o fundo. §e Leve impacto na performance.
+		option.Distance_Blur= Distância do desfoque
+			option.Distance_Blur.comment= Muda o efeito de foco da profundidade de visão para um efeito que desfoca objetos distantes. §e Leve impacto na performance.
+		option.DoF_Strength= Força
+			option.DoF_Strength.comment= Força do efeito de foco. ou seja, quão desfocado vai ficar.
+		option.Dof_Distance_View= Distância
+			option.Dof_Distance_View.comment= Quão perto os objetos tem que estar para que o efeito de desfoque de visão se aplique (se ativado)
+		option.DOF_FOCAL= Foco
+			option.DOF_FOCAL.comment= Tamanho da lente da area de foco.
+
+	screen.Environment= Ambiente
+
+		screen.sclouds= Nuvens
+			option.cloudsCustom= Nuvens customizadas
+				option.cloudsCustom.comment= Habilita / desabilita a colorização das nuvens customizadas. §a Pouco ou nenhum impacto na performance.
+			option.cloudsRed= §cVermelho
+				option.cloudsRed.comment= Troca o valor de Vermelho da cor da nuvem usando o espectro de cores RGBA.
+			option.cloudsGreen= §aVerde
+				option.cloudsGreen.comment= Troca o valor de Verde da cor da nuvem usando o espectro de cores RGBA.
+			option.cloudsBlue= §9Azul
+				option.cloudsBlue.comment= Troca o valor de Azul da cor da nuvem usando o espectro de cores RGBA.
+			option.cloudsAlpha= Alpha
+				option.cloudsAlpha.comment= Troca o valor de Vermelho da cor da nuvem usando um sistema de porcentagem. Alpha é a opacidade ou trasnparência de uma cor
+
+		screen.OFog= Neblina
+			option.OFOG= Neblina
+				option.OFOG.comment= Habilita / desabilita a geração de neblina so Nether. §a Pouco ou nenhum impacto na performance.
+				value.OFOG.0= Vanilla
+				value.OFOG.1= Colorizado
+			option.OFOGR= §cVermelho
+				option.OFOGR.comment= Troca o valor de Vermelho da cor da Neblina usando o espectro de cores RGBA.
+			option.OFOGG= §aVerde
+				option.OFOGG.comment= Troca o valor de Verde da cor da Neblina usando o espectro de cores RGBA.
+			option.OFOGB= §9Azul
+				option.OFOGB.comment= Troca o valor de Azul da cor da Neblina usando o espectro de cores RGBA.
+			option.OFOGI= Força
+				option.OFOGI.comment= Quão densa é a neblina
+
+
+// Nether
+
+screen.Nether= §c Nether
+
+	option.NetherDarkness= Escuridão do nether
+		option.NetherDarkness.comment= Changes the overall Nether darkness. §a Pouco ou nenhum impacto na performance.
+
+	screen.Nfog= Neblina do Nether
+		option.NFOG= Neblina do Nether
+			option.NFOG.comment= Habilita / desabilita a geração de neblina no Nether. §a Pouco ou nenhum impacto na performance.
+		option.NFOGR= §cVermelho
+			option.NFOGR.comment= Troca o valor de Vermelho da cor da Neblina usando o espectro de cores RGBA.
+		option.NFOGG= §aVerde
+			option.NFOGG.comment= Troca o valor de Verde da cor da Neblina usando o espectro de cores RGBA.
+		option.NFOGB= §9Azul
+			option.NFOGB.comment= Troca o valor de Azul da cor da Neblina usando o espectro de cores RGBA.
+		option.NFOGA= Alpha
+			option.NFOGA.comment= Troca o valor de Alpha da cor da Neblina usando o espectro de cores RGBA. Alpha is the opacity or transparency of a color.
+		option.NFOGI= Força
+			option.NFOGI.comment= Muda quão densa é a neblina
+
+	screen.NDepthOfField= Profundidade de visão
+		option.NDepth_of_Field= Profundidade de visão
+			option.NDepth_of_Field.comment= Habilita o efeito de profundidade de visão onde ele "foca" a sua visão em um objeto quando olhando de perto por desfocar o fundo. §e Leve impacto na performance.
+		option.NDistance_Blur= Distância do desfoque
+			option.NDistance_Blur.comment= Muda o efeito de foco da profundidade de visão para um efeito que desfoca objetos distantes. §e Leve impacto na performance.
+		option.NDoF_Strength= Força
+			option.NDoF_Strength.comment= Força do efeito de foco. ou seja, quão desfocado vai ficar.
+		option.NDof_Distance_View= Distância
+			option.NDof_Distance_View.comment= Quão perto os objetos tem que estar para que o efeito de desfoque de visão se aplique (se ativado)
+		option.NDOF_FOCAL= Foco
+			option.NDOF_FOCAL.comment= Tamanho da lente da area de foco.
+
+	screen.netherRefraction= Refração de Calor
+		option.NETHER_REFRACTION= Refração de Calor
+			option.NETHER_REFRACTION.comment= Adiciona um efeito de refração similar ao de embaixo da água para simularo ambiente quente. §e Leve impacto na performance.
+		option.NETHER_REFRACTION_AMOUNT= Intensidade da Refração
+			option.NETHER_REFRACTION_AMOUNT.comment= Muda a intensidade do efeito de refração
+		option.NETHER_REFRACTION_ANIMATION_SPEED= Velocidade de refração
+			option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Muda a velocidade da onda do efeito de refração.
+
+// End
+
+screen.End= §d End
+
+	screen.EFog= Neblina
+		option.EFOG= Neblina
+			option.EFOG.comment= Habilita / desabilita a geração de neblina no fim. §a Pouco ou nenhum impacto na performance.
+			value.EFOG.0= Vanilla
+			value.EFOG.1= Colorizada
+		option.EFOGR= §cVermelho
+			option.EFOGR.comment= Troca o valor de Vermelho da cor da Neblina usando o espectro de cores RGBA.
+		option.EFOGG= §aVerde
+			option.EFOGG.comment= Troca o valor de verde da cor da Neblina usando o espectro de cores RGBA.
+		option.EFOGB= §9Azul
+			option.EFOGB.comment= Troca o valor de Azul da cor da Neblina usando o espectro de cores RGBA.
+		option.EFOGI= Força
+			option.EFOGI.comment= Muda quão densa é a neblina
