@@ -61,7 +61,7 @@ float bayer2(vec2 a){
 
 
 //from ssao.glsl
-#define AOAmount 0.55	//[0.50 0.55 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00 1.05 1.10 1.15 1.2 1.25 1.30 1.35 1.40 1.45 1.50 1.55 1.60 1.65 1.70 1.75 1.80 1.85 1.90 1.95 2.00]
+#define AOAmount 0.45	//[0.40 0.45 0.50 0.55 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00 1.05 1.10 1.15 1.2 1.25 1.30 1.35 1.40 1.45 1.50 1.55 1.60 1.65 1.70 1.75 1.80 1.85 1.90 1.95 2.00]
 #define AOSamples 15 //[10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 105 110 115 120 125 130 135 140 145 150 155 160 165 170 175 180 185 190 195 200]
 
 vec2 offsetDist(float x, int s){
@@ -113,7 +113,7 @@ void main(){
 	float dither = bayer64(gl_FragCoord.xy);
 
 	#ifdef SSAO
-	color.rgb *= dbao(depthtex0, dither);
+		color.rgb *= dbao(depthtex0, dither);
 	#endif
 
 	/* DRAWBUFFERS:0 */
