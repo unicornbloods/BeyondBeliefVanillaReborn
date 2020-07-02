@@ -40,17 +40,17 @@
 
 #ifdef UNDERWATER_REFRACTION
 	vec2 UnderwaterRefraction(in vec2 coord) {
-		float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
-		matID /= 0.1; //back to the original range
+		// float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
+		// matID /= 0.1; //back to the original range
 
 		if(isEyeInWater == 1) {
 			vec2 refraction = vec2(sin(frameTimeCounter * 1.75 * UNDERWATER_REFRACTION_ANIMATION_SPEED + texcoord.x * 50.0 + texcoord.y * 25.0), cos(frameTimeCounter * 2.5 * UNDERWATER_REFRACTION_ANIMATION_SPEED + texcoord.y * 100.0 + texcoord.x * 25.0));
 			return coord + refraction * 0.002 * UNDERWATER_REFRACTION_AMOUNT;
 		}
-		if(matID < 1 && matID > 0.4) {
-			vec2 refraction = vec2(sin(frameTimeCounter * 1.75 * UNDERWATER_REFRACTION_ANIMATION_SPEED + texcoord.x * 50.0 + texcoord.y * 25.0), cos(frameTimeCounter * 2.5 * UNDERWATER_REFRACTION_ANIMATION_SPEED + texcoord.y * 100.0 + texcoord.x * 25.0));
-			return coord + refraction * 0.002 * UNDERWATER_REFRACTION_AMOUNT;
-		}
+		// if(matID < 1 && matID > 0.4) {
+		// 	vec2 refraction = vec2(sin(frameTimeCounter * 1.75 * UNDERWATER_REFRACTION_ANIMATION_SPEED + texcoord.x * 50.0 + texcoord.y * 25.0), cos(frameTimeCounter * 2.5 * UNDERWATER_REFRACTION_ANIMATION_SPEED + texcoord.y * 100.0 + texcoord.x * 25.0));
+		// 	return coord + refraction * 0.002 * UNDERWATER_REFRACTION_AMOUNT;
+		// }
 		return coord;
 	}
 #endif
