@@ -39,6 +39,7 @@ void main() {
 		color.rgb = BSLTonemap(color.rgb);
 		color.rgb = colorSaturation(color.rgb);
 	#else
+		color.rgb = BetterColors(color.rgb);
 		color.rgb = color.SWIZZLE;
 	#endif
 
