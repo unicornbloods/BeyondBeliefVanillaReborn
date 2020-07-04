@@ -24,17 +24,17 @@
 
 #ifdef nightEye
 	void getNightDesaturation(inout vec3 color) {
-	float weight = ndeSat;
+		float weight = ndeSat;
 
-	color = pow(color, vec3(2.2)); // convert from gamma to linear
+		color = pow(color, vec3(2.2)); // convert from gamma to linear
 
-	float brightness = dot(color, vec3(0.2627, 0.6780, 0.0593));
-	float amount = 0.01 / (pow(brightness * weight, 2.0) + 0.01);
-	vec3 desatColor = mix(color, vec3(brightness), vec3(0.9)) * vec3(0.2, 1.0, 2.0);
+		float brightness = dot(color, vec3(0.2627, 0.6780, 0.0593));
+		float amount = 0.01 / (pow(brightness * weight, 2.0) + 0.01);
+		vec3 desatColor = mix(color, vec3(brightness), vec3(0.9)) * vec3(0.2, 1.0, 2.0);
 
-	color = mix(color, desatColor, amount);
+		color = mix(color, desatColor, amount);
 
-	color = pow(color, vec3(1.0 / 2.2)); // convert from linear to gamma
+		color = pow(color, vec3(1.0 / 2.2)); // convert from linear to gamma
 	}
 #endif
 
