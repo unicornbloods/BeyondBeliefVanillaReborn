@@ -13,6 +13,11 @@
 
 screen.Global= Global
 
+	option.AA= AA
+		value.AA.0= OFF
+		value.AA.1= FXAA
+		value.AA.2= TAA
+
 	screen.Tonemap= Tonemap
 		screen.BSL= BSL
 			screen.BSL.comment= BSL Tonemap preset settings. Permission was given by Tatsu to use his Tonemap.
