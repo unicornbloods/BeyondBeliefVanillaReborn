@@ -1,7 +1,7 @@
 #version 120
 #extension GL_ARB_shader_texture_lod : enable
 
-#define FXAA
+#define AA 1 //[0 1 2]
 
 varying vec2 texcoord;
 
@@ -11,11 +11,15 @@ uniform float viewHeight;
 
 uniform sampler2D colortex0;
 
-#ifdef FXAA
-	#include "/lib/Global/fxaa.glsl"
+#if AA == 1
+	#include "/lib/antialiasing/fxaa.glsl"
 #endif
 
-#ifndef FXAA
+#if AA == 2
+	#include "/lib/antialiasing/taa.glsl"
+#endif
+
+#if AA == 0
 	void main() {
 		vec3 color = texture2D(colortex0, texcoord.st).rgb;
 
