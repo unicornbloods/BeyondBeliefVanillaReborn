@@ -88,7 +88,6 @@ void main() {
 		}
 
 		if(matID > 0.9 && matID < 1.5 && isEyeInWater == 0) { // Targetting water
-			// color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
 			color *= exp(-vec3(1.0, 0.2, 0.1) * (depth * 0.5));
 
 		}
