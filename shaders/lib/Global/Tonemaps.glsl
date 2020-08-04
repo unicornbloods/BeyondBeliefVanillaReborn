@@ -67,7 +67,7 @@ vec3 BWTonemap(vec3 color){
 	float maxc = max(color.r, max(color.g, color.b));
 
 	float w = 1.0 - pow(1.0 - 1.0 * avg, 0.0);
-	float weight = 0.0 + w;
+	float weight = 10.0 + w;
 
 	return mix(vec3(maxc), color * 1.0, weight);
 }
