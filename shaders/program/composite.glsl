@@ -116,7 +116,7 @@
 					
 						#if oldFog == 1
 							color.rgb = mix(color.rgb, fogcolor, length(viewPos) / (far * OFOGI));
-							// color.rgb -= near;
+							color.rgb -= near;
 						#else
 							color.rgb = mix(color.rgb, fogcolor, min(GetDepthLinear(texcoord.st) / far * OFOGI , 0.8)) - near;
 						#endif
