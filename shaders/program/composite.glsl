@@ -82,7 +82,7 @@
 					#endif
 
 					color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
-					color = mix(color, WaterColor, length(viewPos) * waterFogDensity / far);
+					color = mix(color, WaterColor, clamp(length(viewPos) * waterFogDensity / far, 0.0, 1.0));
 
 				}
 
