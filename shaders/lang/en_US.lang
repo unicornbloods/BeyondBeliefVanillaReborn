@@ -186,9 +186,6 @@ option.cloudsAlpha= Alpha
 option.cloudsAlpha.comment= Changes the Alpha value of the cloud color using a percentage system. Alpha is the opacity or transparency of a color.
 
 screen.OFog= Fog
-option.oldFog= Old Fog
-value.oldFog.0= Off
-value.oldFog.1= On
 option.OFOG= Fog
 option.OFOG.comment= Enables / Disables fog generation in the Nether dimension. §a Little to no performance impact.
 value.OFOG.0= Vanilla
