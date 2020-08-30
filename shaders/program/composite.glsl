@@ -7,7 +7,7 @@
 			#define OFOGR 112 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 			#define OFOGG 128 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 			#define OFOGB 144 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
-			#define OFOGI 0.9 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.4 3.5 3.6 3.7 3.8 3.9 4.0 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.0 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9 6.0 10.0]
+			#define OFOGI 0.55 //[0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.65 1.0 1.1 1.2 1.3 1.4 1.5 10.0]
 			#define SWAMPFOG
 			#define LBOFOG //Toggle the land based only fog effect. Will affect clouds and sky with it off based on the intensity.
 
@@ -97,7 +97,7 @@
 
 			float depth0 = texture2D(depthtex0, texcoord).x;
 
-			depth = texture2D(depthtex1, texcoord.xy).x;
+			depth = texture2D(depthtex0, texcoord.xy).x;
 
 			#ifdef LBOFOG
 				if	(depth < 1.0) {
@@ -108,12 +108,12 @@
 						float FogIntensity = OFOGI;
 					
 						#if OFOG == 1
-							vec3 fogcolor = fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 0.5);
+							vec3 fogcolor = fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 1);
 						#else
-							vec3 fogcolor = fogColor;
+							vec3 fogcolor = fogColor * mix(fogColor, (vec3(128, 180, 215)) / 255, 0.1);
 						#endif
 					
-							color.rgb = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * OFOGI) - near * 10, 0.0, 1.0));
+						color.rgb = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * OFOGI) - near * 17, 0.0, 1.0));
 					}
 			#ifdef LBOFOG
 				}

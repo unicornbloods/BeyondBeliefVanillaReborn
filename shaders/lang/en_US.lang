@@ -111,7 +111,7 @@ option.waterBlue.comment= Changes the Blue value of the water color using RGBA c
 option.waterAlpha= Alpha
 option.waterAlpha.comment= Changes the Alpha value of the water color using RGBA color spectrum. Alpha is the opacity or transparency of a color.
 
-screen.swaterWaving= Waves
+screen.swaterWaving= Water
 option.waterWaving= Waves
 option.waterWaving.comment= Enables / Disables water waves. §a Little to no performance impact.
 option.waterWaveIntensity= Wave Intensity
@@ -264,3 +264,10 @@ screen.Post_Process= Post Process
 screen.Waving_Blocks= Waving Blocks
 
 option.LBOFOG= Land Based
+option.CSKY= Custom Sky color
+option.CSKYR= §cRed
+option.CSKYG= §aGreen
+option.CSKYB= §9Blue
+option.nCSKY= Notes
+value.nCSKY.0=
+option.nCSKY.comment= These settings only control upper sky. Fog color controls the horizon color.
