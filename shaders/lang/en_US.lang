@@ -160,6 +160,7 @@ option.MOTION_BLUR_STRENGTH.comment= The intensity of the applied blur. Lower is
 screen.Overworld= §a Overworld
 
 screen.DepthOfField= Depth Of Field
+screen.ODepthOfField= §aOverworld
 option.Depth_of_Field= Depth Of Field
 option.Depth_of_Field.comment= Enables the DOF effect where it "focuses" your vision on an object when looked at closely by bluring the background. §e Slight performance impact.
 option.Distance_Blur= Distance Blur
@@ -185,7 +186,7 @@ option.cloudsBlue.comment= Changes the Blue value of the cloud color using RGBA 
 option.cloudsAlpha= Alpha
 option.cloudsAlpha.comment= Changes the Alpha value of the cloud color using a percentage system. Alpha is the opacity or transparency of a color.
 
-screen.OFog= Fog
+screen.OFog= §aOverworld
 option.OFOG= Fog
 option.OFOG.comment= Enables / Disables fog generation in the Nether dimension. §a Little to no performance impact.
 value.OFOG.0= Vanilla
@@ -207,7 +208,7 @@ screen.Nether= §c Nether
 option.NetherDarkness= Nether Darkness
 option.NetherDarkness.comment= Changes the overall Nether darkness. §a Little to no performance impact.
 
-screen.Nfog= Nether Fog
+screen.NFog= §cNether
 option.NFOG= Nether Fog
 option.NFOG.comment= Enables / Disables fog generation in the Nether dimension. §a Little to no performance impact.
 option.NFOGR= §cRed
@@ -221,7 +222,7 @@ option.NFOGA.comment= Changes the Alpha value of the fog color using RGBA color 
 option.NFOGI= Strength
 option.NFOGI.comment= Changes how thick the fog appears.
 
-screen.NDepthOfField= Depth Of Field
+screen.NDepthOfField= §cNether
 option.NDepth_of_Field= Depth Of Field
 option.NDepth_of_Field.comment= Enables the DOF effect where it "focuses" your vision on an object when looked at closely by bluring the background. §e Slight performance impact.
 option.NDistance_Blur= Distance Blur
@@ -245,7 +246,7 @@ option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the 
 
 screen.End= §d End
 
-screen.EFog= Fog
+screen.EFog= §dEnd
 option.EFOG= Fog
 option.EFOG.comment= Enables / Disables fog generation in the End dimension. §a Little to no performance impact.
 value.EFOG.0= Vanilla
@@ -258,3 +259,8 @@ option.EFOGB= §9Blue
 option.EFOGB.comment= Changes the Blue value of the fog color using RGBA color spectrum.
 option.EFOGI= Strength
 option.EFOGI.comment= Changes how thick the fog appears.
+
+screen.Post_Process= Post Process
+screen.Waving_Blocks= Waving Blocks
+
+option.LBOFOG= Land Based
