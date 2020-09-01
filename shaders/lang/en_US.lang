@@ -94,7 +94,7 @@ option.CSB.comment= Changes the Blue value of the Custom Box color using RGB col
 
 screen.water= water
 
-screen.swaterColor= Color
+screen.swaterColor= Water
 option.waterCustom= Type
 option.waterCustom.comment= Change water color type. §a Little to no performance impact.
 value.waterCustom.0=Off

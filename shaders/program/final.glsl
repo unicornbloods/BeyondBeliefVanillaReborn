@@ -75,10 +75,11 @@
 
 			varying vec2 texcoord;
 
-			uniform float frameTimeCounter;
+			#ifdef NETHER_REFRACTION
+				uniform float frameTimeCounter;
 
-			uniform float aspectRatio;
-
+				uniform float aspectRatio;
+			#endif
 		/* #### Functions #### */
 
 			#ifdef NETHER_REFRACTION

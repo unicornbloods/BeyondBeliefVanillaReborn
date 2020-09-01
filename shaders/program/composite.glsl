@@ -68,11 +68,10 @@
 			vec3 viewPos = tmp.xyz / tmp.w;
 			// end for fog
 
-			float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
-			matID *= 2.0; //back to the original range
-
 			float depth = texture2D(depthtex0, newtc).r;
 			#ifdef waterFog
+				float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
+				matID *= 2.0; //back to the original range
 				if(isEyeInWater == 1) { // Underwater
 
 					#if waterFog == 0
