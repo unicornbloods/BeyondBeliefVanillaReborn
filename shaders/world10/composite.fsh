@@ -1,6 +1,6 @@
 #version 120
 
-	#define End
+	#define Global
 	#define fsh
 
 	#include "/program/composite.glsl"
