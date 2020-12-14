@@ -1,6 +1,6 @@
 #version 120
 
-#define nCSKY 0
+// #define nCSKY 0
 
 #define OFOG 0 //[0 1]
 	#define OFOGR 112 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
@@ -29,14 +29,13 @@ float fogify(float x, float w) {
 #if OFOG == 1
 	vec3 fogcolor = fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 1);
 #else
-	vec3 fogcolor = fogColor * mix(fogColor, (vec3(128, 180, 215)) / 255, 0.1);
+	vec3 fogcolor = fogColor;
 #endif
 
 #ifdef CSKY
 	vec3 skycolor = skyColor * mix(skyColor, (vec3(CSKYR, CSKYG, CSKYB) / 255), 1);
 #else
-// improved vanilla sky color
-	vec3 skycolor = skyColor * mix(skyColor, (vec3(98, 170, 245)) / 255, 0.1);
+	vec3 skycolor = skyColor;
 #endif
 
 
