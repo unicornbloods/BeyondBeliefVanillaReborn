@@ -7,7 +7,7 @@
 			#define OFOGR 112 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 			#define OFOGG 128 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 			#define OFOGB 144 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
-			#define OFOGI 0.55 //[0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.65 1.0 1.1 1.2 1.3 1.4 1.5 10.0]
+			#define OFOGI 0.9 //[0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.65 1.0 1.1 1.2 1.3 1.4 1.5 10.0]
 			#define SWAMPFOG
 			#define LBOFOG //Toggle the land based only fog effect. Will affect clouds and sky with it off based on the intensity.
 
@@ -35,10 +35,12 @@
 			uniform float far;
 			uniform sampler2D depthtex0;
 			uniform sampler2D gdepthtex;
-			uniform mat4 gbufferProjectionInverse; 
+			uniform mat4 gbufferProjectionInverse;
+			uniform vec3 cameraPosition;
+			uniform mat4 gbufferModelViewInverse; 
 
 			// for underwater fog
-			uniform int   isEyeInWater;
+			uniform int    isEyeInWater;
 			uniform sampler2D depthtex1;
 			uniform sampler2D colortex1; // calls matID from buffer 1
 			uniform sampler2D colortex2; // calls lmcoord from buffer 2
@@ -67,6 +69,10 @@
 			vec3 screenspace = vec3(texcoord, texture2D(depthtex0, texcoord).r);
 			vec4 tmp = gbufferProjectionInverse * vec4(screenspace * 2.0 - 1.0, 1.0);
 			vec3 viewPos = tmp.xyz / tmp.w;
+
+			vec3 eyePlayerPos = mat3(gbufferModelViewInverse) * viewPos;
+			vec3 feetPlayerPos = eyePlayerPos + gbufferModelViewInverse[3].xyz; //in 1.14+ this step is unnecessary because gbufferModelViewInverse[3].xyz is now always 0.
+			vec3 worldPos = feetPlayerPos + cameraPosition;
 			// end for fog
 
 			float depth = texture2D(depthtex0, newtc).r;
@@ -88,7 +94,6 @@
 
 				if(matID > 0.9 && matID < 1.5 && isEyeInWater == 0) { // Targetting water
 					color *= exp(-vec3(1.0, 0.2, 0.1) * (depth * 0.5));
-
 				}
 
 			#endif
@@ -103,14 +108,14 @@
 				if	(depth < 1.0) {
 			#endif
 					if (isEyeInWater == 0) { // Above water
-
-						float FogIntensity = mix(OFOGI, (OFOGI / 2.00), rainStrength);
+						worldPos.y /= 100;
+						float FogIntensity = clamp((mix(OFOGI, (OFOGI / 2.0), rainStrength) * worldPos.y), 0.0, 1);
 						// float FogIntensity = OFOGI;
 					
 						#if OFOG == 1
-							vec3 fogcolor = fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 1);
+							vec3 fogcolor = clamp((fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 1) * worldPos.y), 0.0, 1.0);
 						#else
-							vec3 fogcolor = fogColor;
+							vec3 fogcolor = clamp((fogColor * worldPos.y), 0.0, 1.0);
 						#endif
 					
 						color.rgb = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * FogIntensity) - near * 17, 0.0, 1.0));
