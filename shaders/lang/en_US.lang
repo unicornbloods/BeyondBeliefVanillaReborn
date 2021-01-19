@@ -199,6 +199,8 @@ option.OFOGB= §9Blue
 option.OFOGB.comment= Changes the Blue value of the fog color using RGBA color spectrum.
 option.OFOGI= Strength
 option.OFOGI.comment= Changes how thick the fog appears.
+option.HeightBasedFog=Height Based
+option.HeightBasedFog.comment= Makes fog more dense the further down in the world it is.
 
 
 // Nether

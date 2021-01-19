@@ -10,6 +10,7 @@
 			#define OFOGI 0.9 //[0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.65 1.0 1.1 1.2 1.3 1.4 1.5 10.0]
 			#define SWAMPFOG
 			#define LBOFOG //Toggle the land based only fog effect. Will affect clouds and sky with it off based on the intensity.
+			#define HeightBasedFog
 
 		// 0 = vanilla, 1 = custom
 		#define waterFog 0 //[0 1]
@@ -110,8 +111,12 @@
 			#endif
 					if (isEyeInWater == 0) { // Above water
 						worldPos.y /= 100;
-						// add height based and rain strength
-						float FogIntensity = mix(OFOGI, (OFOGI * 0.5), rainStrength) * worldPos.y;
+						// add rain strength
+						float FogIntensity = mix(OFOGI, (OFOGI * 0.5), rainStrength);
+						#ifdef HeightBasedFog
+							//Add height based fog
+							FogIntensity *= worldPos.y;
+						#endif
 						// add blindness
 						FogIntensity = mix(FogIntensity, (FogIntensity * 0.1), blindness);
 					
@@ -306,6 +311,7 @@
 			#define OFOGI 0.9 //[0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.65 1.0 1.1 1.2 1.3 1.4 1.5 10.0]
 			#define SWAMPFOG
 			#define LBOFOG //Toggle the land based only fog effect. Will affect clouds and sky with it off based on the intensity.
+			#define HeightBasedFog
 
 		// 0 = vanilla, 1 = custom
 		#define waterFog 0 //[0 1]
@@ -406,8 +412,12 @@
 			#endif
 					if (isEyeInWater == 0) { // Above water
 						worldPos.y /= 150;
-						// add height based and rain strength
-						float FogIntensity = mix(OFOGI, (OFOGI * 0.5), rainStrength) * worldPos.y;
+						// add rain strength
+						float FogIntensity = mix(OFOGI, (OFOGI * 0.5), rainStrength);
+						#ifdef HeightBasedFog
+							//Add height based fog
+							FogIntensity *= worldPos.y;
+						#endif
 						// add blindness
 						FogIntensity = mix(FogIntensity, (FogIntensity * 0.1), blindness);
 					
