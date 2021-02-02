@@ -94,7 +94,7 @@ option.CSB.comment= Changes the Blue value of the Custom Box color using RGB col
 
 screen.water= water
 
-screen.swaterColor= Color
+screen.swaterColor= Water
 option.waterCustom= Type
 option.waterCustom.comment= Change water color type. §a Little to no performance impact.
 value.waterCustom.0=Off
@@ -111,7 +111,7 @@ option.waterBlue.comment= Changes the Blue value of the water color using RGBA c
 option.waterAlpha= Alpha
 option.waterAlpha.comment= Changes the Alpha value of the water color using RGBA color spectrum. Alpha is the opacity or transparency of a color.
 
-screen.swaterWaving= Waves
+screen.swaterWaving= Water
 option.waterWaving= Waves
 option.waterWaving.comment= Enables / Disables water waves. §a Little to no performance impact.
 option.waterWaveIntensity= Wave Intensity
@@ -160,6 +160,7 @@ option.MOTION_BLUR_STRENGTH.comment= The intensity of the applied blur. Lower is
 screen.Overworld= §a Overworld
 
 screen.DepthOfField= Depth Of Field
+screen.ODepthOfField= §aOverworld
 option.Depth_of_Field= Depth Of Field
 option.Depth_of_Field.comment= Enables the DOF effect where it "focuses" your vision on an object when looked at closely by bluring the background. §e Slight performance impact.
 option.Distance_Blur= Distance Blur
@@ -185,7 +186,7 @@ option.cloudsBlue.comment= Changes the Blue value of the cloud color using RGBA 
 option.cloudsAlpha= Alpha
 option.cloudsAlpha.comment= Changes the Alpha value of the cloud color using a percentage system. Alpha is the opacity or transparency of a color.
 
-screen.OFog= Fog
+screen.OFog= §aOverworld
 option.OFOG= Fog
 option.OFOG.comment= Enables / Disables fog generation in the Nether dimension. §a Little to no performance impact.
 value.OFOG.0= Vanilla
@@ -198,6 +199,8 @@ option.OFOGB= §9Blue
 option.OFOGB.comment= Changes the Blue value of the fog color using RGBA color spectrum.
 option.OFOGI= Strength
 option.OFOGI.comment= Changes how thick the fog appears.
+option.HeightBasedFog=Height Based
+option.HeightBasedFog.comment= Makes fog more dense the further down in the world it is.
 
 
 // Nether
@@ -207,7 +210,7 @@ screen.Nether= §c Nether
 option.NetherDarkness= Nether Darkness
 option.NetherDarkness.comment= Changes the overall Nether darkness. §a Little to no performance impact.
 
-screen.Nfog= Nether Fog
+screen.NFog= §cNether
 option.NFOG= Nether Fog
 option.NFOG.comment= Enables / Disables fog generation in the Nether dimension. §a Little to no performance impact.
 option.NFOGR= §cRed
@@ -221,7 +224,7 @@ option.NFOGA.comment= Changes the Alpha value of the fog color using RGBA color 
 option.NFOGI= Strength
 option.NFOGI.comment= Changes how thick the fog appears.
 
-screen.NDepthOfField= Depth Of Field
+screen.NDepthOfField= §cNether
 option.NDepth_of_Field= Depth Of Field
 option.NDepth_of_Field.comment= Enables the DOF effect where it "focuses" your vision on an object when looked at closely by bluring the background. §e Slight performance impact.
 option.NDistance_Blur= Distance Blur
@@ -245,7 +248,7 @@ option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the 
 
 screen.End= §d End
 
-screen.EFog= Fog
+screen.EFog= §dEnd
 option.EFOG= Fog
 option.EFOG.comment= Enables / Disables fog generation in the End dimension. §a Little to no performance impact.
 value.EFOG.0= Vanilla
@@ -258,3 +261,15 @@ option.EFOGB= §9Blue
 option.EFOGB.comment= Changes the Blue value of the fog color using RGBA color spectrum.
 option.EFOGI= Strength
 option.EFOGI.comment= Changes how thick the fog appears.
+
+screen.Post_Process= Post Process
+screen.Waving_Blocks= Waving Blocks
+
+option.LBOFOG= Land Based
+option.CSKY= Custom Sky color
+option.CSKYR= §cRed
+option.CSKYG= §aGreen
+option.CSKYB= §9Blue
+option.nCSKY= Notes
+value.nCSKY.0=
+option.nCSKY.comment= These settings only control upper sky. Fog color controls the horizon color.

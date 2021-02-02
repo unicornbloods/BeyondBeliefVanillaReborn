@@ -5,9 +5,11 @@
 
 		varying vec2 texcoord;
 
-		uniform float aspectRatio;
-		uniform float viewWidth;
-		uniform float viewHeight;
+		#ifdef AA
+			uniform float aspectRatio;
+			uniform float viewWidth;
+			uniform float viewHeight;
+		#endif
 
 		uniform sampler2D colortex0;
 

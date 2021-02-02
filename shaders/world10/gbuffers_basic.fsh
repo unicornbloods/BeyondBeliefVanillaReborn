@@ -1,36 +1,6 @@
 #version 120
 
-// #define CSBOX
-	#define CSR 0 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
-	#define CSG 0 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
-	#define CSB 0 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
+	#define Global
+	#define fsh
 
-
-uniform sampler2D lightmap;
-uniform sampler2D texture;
-
-varying vec2 lmcoord;
-varying vec2 texcoord;
-varying vec4 glcolor;
-
-void main() {
-
-#ifdef CSBOX
-	vec3 color = vec3(CSR, CSG, CSB) / 255;
-		/* DRAWBUFFERS:0 */
-		gl_FragData[0] = vec4(color, 1.0);
-
-#endif
-
-#ifndef CSBOX
-	vec4 color = texture2D(lightmap, lmcoord) * glcolor;
-	//color *= texture2D(lightmap, lmcoord);
-
-	/* DRAWBUFFERS:0 */
-	gl_FragData[0] = color; //colortex0
-
-#endif
-
-	gl_FragData[1] = vec4(0.0);
-
-}
+	#include "/program/gbuffers_basic.glsl"
