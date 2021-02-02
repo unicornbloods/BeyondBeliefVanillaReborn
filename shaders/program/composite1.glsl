@@ -108,7 +108,7 @@
 			vec3 calcDof(vec3 color, float depth0, float depth1){
 				float pw = 1.0/ viewWidth;
 				float z = ld(depth0)*far;
-				float focus = ld(texture2D(depthtex0, vec2(0.5)).r)*far;
+				float focus = ld(texture2D(depthtex2, vec2(0.5)).r)*far;
 				float pcoc = min(abs(aperture * (focal * (z - focus)) / (z * (focus - focal)))*sizemult,pw*15.0);
 
 				#ifdef Distance_Blur
@@ -250,7 +250,7 @@
 			vec3 calcDof(vec3 color, float depth0, float depth1){
 				float pw = 1.0/ viewWidth;
 				float z = ld(depth0)*far;
-				float focus = ld(texture2D(depthtex0, vec2(0.5)).r)*far;
+				float focus = ld(texture2D(depthtex2, vec2(0.5)).r)*far;
 				float pcoc = min(abs(aperture * (focal * (z - focus)) / (z * (focus - focal)))*sizemult,pw*15.0);
 
 				#ifdef NDistance_Blur

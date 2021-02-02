@@ -75,10 +75,11 @@
 
 			varying vec2 texcoord;
 
-			uniform float frameTimeCounter;
+			#ifdef NETHER_REFRACTION
+				uniform float frameTimeCounter;
 
-			uniform float aspectRatio;
-
+				uniform float aspectRatio;
+			#endif
 		/* #### Functions #### */
 
 			#ifdef NETHER_REFRACTION
@@ -91,6 +92,8 @@
 
 		/* #### Includes #### */
 
+			#include "/lib/Global/Tonemaps.glsl"
+
 		/* #### VoidMain #### */
 
 			void main() {
@@ -102,6 +105,24 @@
 				#endif
 
 				vec4 color = vec4(texture2D(colortex0, coord).rgb, 1.0); //always use the "refracted" coord instead of texcoord after the refraction
+
+				// Tonemapping 
+
+				#if TONEMAP == 2
+					color.rgb = BOTWTonemap(color.rgb);
+				#elif TONEMAP == 3
+					color.rgb = BWTonemap(color.rgb);
+				#elif TONEMAP == 4
+					color.rgb = NegativeTonemap(color.rgb);
+				#elif TONEMAP == 5
+					color.rgb = SpoopyTonemap(color.rgb);
+				#elif TONEMAP == 6
+					color.rgb = BSLTonemap(color.rgb);
+					color.rgb = colorSaturation(color.rgb);
+				#else
+					color.rgb = BetterColors(color.rgb);
+					color.rgb = color.SWIZZLE;
+				#endif
 
 				#ifdef lensMonochrome
 					float brightness = dot(color.rgb, vec3(0.299, 0.587, 0.114)); // or (color.r + color.g + color.b) / 3
