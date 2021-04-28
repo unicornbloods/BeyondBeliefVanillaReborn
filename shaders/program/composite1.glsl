@@ -5,7 +5,7 @@
 		/////////DOF File, Credit to Sildur for dof base./////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////
 
-		#define Depth_of_Field	//Simulates eye focusing on objects. Low performance impact
+		// #define Depth_of_Field	//Simulates eye focusing on objects. Low performance impact
 			//#define Distance_Blur	//Requires Depth of Field to be enabled. Replaces eye focusing effect with distance being blurred instead.
 			#define DoF_Strength 75.0	//[50.0  55.0  60.0  65.0  70.0  75.0  80.0  85.0  90.0  95.0  100.0  105.0  110.0  115.0  120.0  125.0  130.0  135.0  140.0  145.0  150.0]
 			#define Dof_Distance_View 128	//[128 192 256 320 384 448 512]
@@ -147,7 +147,7 @@
 		/////////DOF File, Credit to Sildur for dof base./////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////
 
-		#define NDepth_of_Field	//Simulates eye focusing on objects. Low performance impact
+		// #define NDepth_of_Field	//Simulates eye focusing on objects. Low performance impact
 			#define NDistance_Blur	//Requires Depth of Field to be enabled. Replaces eye focusing effect with distance being blurred instead.
 			#define NDoF_Strength 50.0	//[50.0  55.0  60.0  65.0  70.0  75.0  80.0  85.0  90.0  95.0  100.0  105.0  110.0  115.0  120.0  125.0  130.0  135.0  140.0  145.0  150.0]
 			#define NDof_Distance_View 128	//[128 192 256 320 384 448 512]

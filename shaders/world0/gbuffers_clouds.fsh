@@ -15,8 +15,9 @@ varying vec4 glcolor;
 void main() {
 	vec4 color = texture2D(texture, texcoord) * glcolor;
 
+
 	#ifdef cloudsCustom
-		color *= ((cloudsRed, cloudsGreen, cloudsBlue) / 255 , cloudsAlpha);
+		color *= vec4(cloudsRed / 255, cloudsGreen / 255 , cloudsBlue / 255, cloudsAlpha);
 	#endif
 
 /* DRAWBUFFERS:0 */
