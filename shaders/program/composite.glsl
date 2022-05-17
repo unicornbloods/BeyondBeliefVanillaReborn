@@ -115,15 +115,19 @@
 						float FogIntensity = mix(OFOGI, (OFOGI * 0.5), rainStrength);
 						#ifdef HeightBasedFog
 							//Add height based fog
-							FogIntensity *= worldPos.y;
+							#if MC_VERSION >= 11800 // Mc 1.18+ fix
+								FogIntensity *= worldPos.y + 0.65;
+							#else
+								FogIntensity *= worldPos.y;
+							#endif
 						#endif
 						// add blindness
 						FogIntensity = mix(FogIntensity, (FogIntensity * 0.1), blindness);
 					
 						#if OFOG == 1
 							vec3 fogcolor = clamp((fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 1) * worldPos.y), 0.0, 1.0);
-						#else
-							vec3 fogcolor = clamp((fogColor * worldPos.y), 0.0, 1.0);
+						#else						
+								vec3 fogcolor = clamp((fogColor * worldPos.y), 0.0, 1.0);
 						#endif
 					
 						color.rgb = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * clamp(FogIntensity, 0.0, 1.0)) - near * 17, 0.0, 1.0));
