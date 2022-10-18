@@ -1,0 +1,22 @@
+V2.0.0
+Developed on 1.7.10 with AMD 6600XT GPU.
++ Added FilmGrain intensity slider.
++ Reimplemented and rewrote Darker Nights option.
++ Made the red flash on hitting mobs more prominent.
++ Fixed swizzle to work with any tonemap.
++ Optimized a lot.
++ Extended the values for Motion Blur so it can be less intense.
++ Added Support for 1.7.10 Streams mod
++ Fog fixed!!!
+
+// TODO: the below
+    + Seperate out the different waving foliage.
+    + Added a bunch of modded 1.7.10 dimmensions.
+    + Seperate block.properties based on MC Version.
+    + Per biome effects brought back (like dynamic surroundings).
+    + A new water effect.
+    + Lens effects in rain.
+    + Nether biome support (for Et Futrum Requiem as well).
+
+V1.5.7
++ Fixed water refraction and night eye in older versions

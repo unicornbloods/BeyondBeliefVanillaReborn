@@ -13,7 +13,7 @@ void main() {
 	vec4 color = texture2D(texture, texcoord) * glcolor;
 	color *= texture2D(lightmap, lmcoord);
 
-	if(entityColor.a > 0) color.r *= 1.5;
+	if(entityColor.a > 0) color.r *= 2.5;
 
 /* DRAWBUFFERS:0 */
 	gl_FragData[0] = color; //gcolor

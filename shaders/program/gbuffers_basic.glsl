@@ -17,7 +17,7 @@
 		void main() {
 
 		#ifdef CSBOX
-			vec3 color = vec3(CSR, CSG, CSB) / 255;
+			vec3 color = vec3(CSR, CSG, CSB) * 0.004;
 				/* DRAWBUFFERS:0 */
 				gl_FragData[0] = vec4(color, 1.0);
 

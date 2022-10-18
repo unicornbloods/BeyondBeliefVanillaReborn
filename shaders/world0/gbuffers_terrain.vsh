@@ -8,12 +8,11 @@
 varying vec2 lmcoord;
 varying vec2 texcoord;
 varying vec4 glcolor;
+uniform int worldTime;
 
 #ifdef wavingFoliage
 	attribute vec3 mc_Entity;
 	attribute vec2 mc_midTexCoord;
-
-	uniform int worldTime;
 
 	uniform float rainStrength;
 	uniform float wetness; 
@@ -55,6 +54,8 @@ void main() {
 	gl_Position = ftransform();
 	texcoord = (gl_TextureMatrix[0] * gl_MultiTexCoord0).xy;
 	lmcoord  = (gl_TextureMatrix[1] * gl_MultiTexCoord1).xy;
+
+	#include "/lib/Global/NightDarkness.glsl"
 
 #ifdef wavingFoliage
 	vec4 pos = gbufferModelViewInverse * (gl_ModelViewMatrix * gl_Vertex); //chunk coords -> world coords
