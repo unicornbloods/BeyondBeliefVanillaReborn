@@ -132,7 +132,7 @@ option.waterFogDensityAbove= Abovewater Density
 option.waterFogDensityAbove.comment= Changes the fog density when viewed from above water.
 
 screen.swavingFoliage= Waving Plants
-option.wavingFoliage= Foliage
+option.wavingFoliage= All
 option.wavingFoliage.comment= Enables / Disables waving plants. §6 Moderate performance impact in forested areas.
 option.wavingGrasses = Grasses
 option.wavingDoublePlants = Tall Plants
