@@ -42,6 +42,7 @@
 
 		#define wavingLeaves //This option can cause performance hits in large forests.
 
+
 		varying vec2 lmcoord;
 		varying vec2 texcoord;
 		varying vec4 glcolor;
@@ -101,31 +102,26 @@
 			glcolor = gl_Color;
 			#ifdef wavingFoliage
 
-
 				vec3 normal;
 				if (mc_Entity.x > 10000.0) {
 					int id = int(mc_Entity.x) - 10000;
 
-					if (id == 1) { //grass blocks and dirt
+					if (id == 1) { // Just meant to be a branch to always be here. Yea it is bad practice but it is preventing errors.
 						normal = gl_NormalMatrix * gl_Normal;
 					} 
-					else if (id == 2) { //tallgrass and other plants
+				#ifdef wavingGrasses
+					else if (id == 2) { // tallgrass and other plants
 						normal = gl_NormalMatrix[1];
 
 						float amt = float(texcoord.y < mc_midTexCoord.y);
 
-						if (amt > 0.1) { //will always either be 0.0 or 1.0
+						if (amt > 0.1) { // will always either be 0.0 or 1.0
 							pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, wavingSpeed);
 						}
-					} 
-					else if (id == 13) { //leaves
-						normal = gl_NormalMatrix * gl_Normal;
-						
-						#ifdef wavingLeaves
-							pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, wavingSpeed);
-						#endif
-					} 
-					else if (id == 3 || id == 4) { //double plants
+					}
+				#endif
+				#ifdef wavingDoublePlants
+					else if (id == 3 || id == 4) { // double plants
 						normal = gl_NormalMatrix[1];
 
 
@@ -134,26 +130,71 @@
 						//windSpeed = 0.5;
 						amt *= 1.5;
 
-						if (amt > 0.1) { //will always either be 0.0, 0.5 or 1.0
+						if (amt > 0.1) { // will always either be 0.0, 0.5 or 1.0
 							pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, wavingSpeed);
 						}
-					} 
-					else if (id == 5) { //crops
+					}
+				#endif
+				#ifdef wavingCrops
+					else if (id == 5) { // crops
 						normal = gl_NormalMatrix[1];
 
 						if (texcoord.y < mc_midTexCoord.y) {
 							pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, wavingSpeed);
 						}
 					}
+				#endif
+				#ifdef wavingFlowers
+					else if (id == 9) { // flowers
+						normal = gl_NormalMatrix[1];
 
+						float amt = float(texcoord.y < mc_midTexCoord.y);
 
+						if (amt > 0.1) { // will always either be 0.0 or 1.0
+							pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, wavingSpeed);
+						}
+					}
+				#endif
+				#ifdef wavingSaplings
+					else if (id == 10) { // saplings
+						normal = gl_NormalMatrix[1];
 
+						float amt = float(texcoord.y < mc_midTexCoord.y);
 
-						// case 2 : //tallgrass and other plants
-						// case 4 : // upper plant bits
-						// case 13 : //leaves
-						// case 3 : //double plants
-						// case 5 : //crops
+						if (amt > 0.1) { // will always either be 0.0 or 1.0
+							pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, wavingSpeed);
+						}
+					}
+				#endif
+				#ifdef wavingMushrooms
+					else if (id == 11) { // mushrooms
+						normal = gl_NormalMatrix[1];
+
+						float amt = float(texcoord.y < mc_midTexCoord.y);
+
+						if (amt > 0.1) { // will always either be 0.0 or 1.0
+							pos.xyz += windOffset(pos.xyz + cameraPosition, amt * 1.0, wavingSpeed);
+						}
+					}
+				#endif
+				#ifdef wavingLeaves
+					else if (id == 13) { // leaves
+						normal = gl_NormalMatrix * gl_Normal;
+						
+						#ifdef wavingLeaves
+							pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, wavingSpeed);
+						#endif
+					}
+				#endif
+				#ifdef wavingVines
+					else if (id == 14) { // vines
+						normal = gl_NormalMatrix * gl_Normal;
+						
+						#ifdef wavingLeaves
+							pos.xyz += windOffset(pos.xyz + cameraPosition, 1.0, wavingSpeed);
+						#endif
+					}
+				#endif
 
 					gl_Position = gl_ProjectionMatrix * (gbufferModelView * pos);
 
