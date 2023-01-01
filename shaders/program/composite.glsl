@@ -10,7 +10,6 @@
 			#define OFOGB 144 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 			#define OFOGI 0.9 //[0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.65 1.0 1.1 1.2 1.3 1.4 1.5 10.0]
 			#define SWAMPFOG
-			#define LBOFOG //Toggle the land based only fog effect. Will affect clouds and sky with it off based on the intensity.
 			#define HeightBasedFog
 
 		// Nether Fog
@@ -56,8 +55,10 @@
 			uniform sampler2D gdepthtex;
 			uniform mat4 gbufferProjectionInverse;
 			uniform vec3 cameraPosition;
-			uniform mat4 gbufferModelViewInverse; 
+			uniform mat4 gbufferModelViewInverse;
 			uniform float blindness;
+			uniform float isValley, isCrimson, isWarped, isBasalt;
+
 
 			// for underwater fog
 			uniform int isEyeInWater;
@@ -84,8 +85,12 @@
 			vec3 viewPos = tmp.xyz / tmp.w;
 
 			vec3 eyePlayerPos = mat3(gbufferModelViewInverse) * viewPos;
-			vec3 feetPlayerPos = eyePlayerPos + gbufferModelViewInverse[3].xyz; //in 1.14+ this step is unnecessary because gbufferModelViewInverse[3].xyz is now always 0.
-			vec3 worldPos = feetPlayerPos + cameraPosition;
+			#if MC_VERSION >= 11400
+				vec3 worldPos = eyePlayerPos + cameraPosition;
+			#else
+				vec3 feetPlayerPos = eyePlayerPos + gbufferModelViewInverse[3].xyz; //in 1.14+ this step is unnecessary because gbufferModelViewInverse[3].xyz is now always 0.
+				vec3 worldPos = feetPlayerPos + cameraPosition;
+			#endif
 			// end for fog
 
 			#ifndef Nether
@@ -122,7 +127,7 @@
 			// Non Special Values
 			#ifndef End
 				#ifndef Nether
-					float FogIntensity = mix(OFOGI, (OFOGI * 0.5), rainStrength);
+					float FogIntensity = mix(OFOGI, (OFOGI * 0.1), rainStrength * 0.85);
 					vec3 fogcolor = mix(clamp(fogColor, 0.0, 1.0), clamp(fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) * 0.004), 1), 0.0, 1.0), OFOG);
 				#endif
 			#endif
@@ -140,6 +145,11 @@
 					}
 				#endif
 
+				#ifdef Nether
+					if (isValley == 1.0) {
+						fogcolor = vec3(0.0);
+					}
+				#endif
 
 				if	(depth < 1.0) {
 
@@ -173,7 +183,7 @@
 
 					#ifndef End
 						#ifndef Nether
-							color = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * clamp(FogIntensity, 0.0, 1.0)) / worldPos.y - near * 5, 0.0, 1.0));
+							color = mix(color.rgb, fogcolor, clamp(length(viewPos) / ((far * clamp(FogIntensity, 0.01, 1.0)) * clamp(worldPos.y, 0.01, 1.0)) - (near * 5), 0.01, 1.0));
 							// color = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * clamp(FogIntensity, 0.0, 1.0)) - near * 17, 0.0, 1.0));
 						#endif
 					#endif

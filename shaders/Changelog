@@ -1,13 +1,14 @@
 V2.0.0
-Developed on 1.7.10 with AMD 6600XT GPU.
-+ Added FilmGrain intensity slider.
-+ Reimplemented and rewrote Darker Nights option.
-+ Made the red flash on hitting mobs more prominent.
-+ Fixed swizzle to work with any tonemap.
-+ Optimized a lot.
-+ Extended the values for Motion Blur so it can be less intense.
-+ Added Support for 1.7.10 Streams mod
-+ Fog fixed!!!
+Developed on 1.16.5 with AMD 6600XT GPU.
+feat: Added Film Grain intensity slider.
+feat: Added Support for 1.7.10 Streams mod
+fix: Fixed swizzle to work with any tone map.
+fix: Fog fixed and improved!!
+refactor: Reimplemented and rewrote Darker Nights option.
+refactor: Made the red flash on hitting mobs more prominent.
+refactor: Optimized a lot. (Should be quite a bit faster from my testing.)
+refactor: Extended the values for Motion Blur, so it can be less intense.
+
 
 // TODO: the below
     + Seperate out the different waving foliage.
@@ -17,6 +18,7 @@ Developed on 1.7.10 with AMD 6600XT GPU.
     + A new water effect.
     + Lens effects in rain.
     + Nether biome support (for Et Futrum Requiem as well).
+    + Add noise to end fog.
 
 V1.5.7
 + Fixed water refraction and night eye in older versions
