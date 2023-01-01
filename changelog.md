@@ -23,26 +23,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Made the red flash on hitting mobs more prominent.
 - Optimized a lot. (Should be quite a bit faster from my testing.)
 - Extended the values for Motion Blur, so it can be less intense.
+- Split all waving foliage to their own toggles
 
 
 ## [1.5.7] - 2022-06-13
 
+### Fixed
+- Fixed water refraction and night eye in older versions
+
 ## [1.5.6.2] - 2022-04-11
 
 ### Added
-- Botania Support <br>
-- Bewitchment Support <br>
-- FutureMc Support <br>
-- Fossils and Archeology Revival Support <br>
-- Rats plants Support <br>
+- Botania Support
+- Bewitchment Support
+- FutureMc Support
+- Fossils and Archeology Revival Support
+- Rats plants Support
 
 ### Changed
-- Added Min Optifine version for 1.7.10 and 1.12.2 <br>
+- Added Min Optifine version for 1.7.10 and 1.12.2
 
 ## [1.5.6.1] - 2022-01-03
+
 ### Fixed
 - Issue (#9) with 1.13 water mechanics backport mod resolved.
 
 ## [1.5.6.0] - 2021-12-29
+
 ### Fixed
 - Issue with screen blacking out going below 0y on 1.18 is resolved.
