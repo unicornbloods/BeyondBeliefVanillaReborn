@@ -23,7 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Made the red flash on hitting mobs more prominent.
 - Optimized a lot. (Should be quite a bit faster from my testing.)
 - Extended the values for Motion Blur, so it can be less intense.
-- Split all waving foliage to their own toggles
+- Split all waving foliage to their own toggles.
+- Make fog underwater thicker during rain.
 
 
 ## [1.5.7] - 2022-06-13

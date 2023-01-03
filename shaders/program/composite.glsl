@@ -103,7 +103,9 @@
 						vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
 					#endif
 
-					color = mix(color * exp(-vec3(1.0, 0.2, 0.1) * depth), WaterColor, clamp(length(viewPos) * waterFogDensity / far, 0.0, 1.0));
+					float waterFogIntensity = mix(waterFogDensity, (waterFogDensity * 3), rainStrength);
+
+					color = mix(color * exp(-vec3(1.0, 0.2, 0.1) * depth), WaterColor, clamp(length(viewPos) * waterFogIntensity / far, 0.0, 1.0));
 
 					return color;
 				}
