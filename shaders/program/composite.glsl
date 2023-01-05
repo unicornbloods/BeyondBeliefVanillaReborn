@@ -122,7 +122,13 @@
 			// Nether Values
 			#ifdef Nether
 				float FogIntensity = NFOGI;
-				vec3 fogcolor = pow(vec3(NFOGR, NFOGG, NFOGB) * 0.004, vec3(2.2));
+				#if MC_VERSION >= 11600
+				// For some reason color doesn't change if you refresh shaders untill you cross over a biome
+					vec3 fogcolor = max(fogColor * (1.0 - length(fogColor / 3.0)) * 2, vec3(0.001));
+				#else
+					vec3 fogcolor = pow(vec3(NFOGR, NFOGG, NFOGB) * 0.004, vec3(2.2));
+				#endif
+
 				float beers_law_factor = 0.75;
 			#endif
 
@@ -176,11 +182,11 @@
 					
 					
 					#ifdef End
-						color = mix(color.rgb, fogcolor, clamp((length(viewPos) / (far * clamp(FogIntensity, 0.0, 1.0))) / exp(-depth * beers_law_factor), 0.0, 1.0));
+						color = mix(color.rgb, fogcolor, clamp((length(viewPos) / (far * FogIntensity)) / exp(-depth * beers_law_factor), 0.0, 1.0));
 					#endif
 
 					#ifdef Nether
-						color = mix(color.rgb, fogcolor, clamp((length(viewPos) / (far * clamp(FogIntensity, 0.0, 1.0))) / exp(-depth * beers_law_factor), 0.0, 1.0));
+						color = mix(color.rgb, fogcolor, clamp((length(viewPos) / (far * FogIntensity)) / exp(-depth * beers_law_factor), 0.0, 1.0));
 					#endif
 
 					#ifndef End
