@@ -1,6 +1,6 @@
 #version 120
 
-	#define Nether
+	#define Global
 	#define fsh
 
 	#include "/program/final.glsl"

@@ -1,6 +1,6 @@
 #shaders/lang/en_us.lang
 
-// Key
+# Key
 
 # §a Little to no performance impact.
 # §e Slight performance impact.
@@ -9,7 +9,7 @@
 # §4 Extreme performance impact.
 
 
-// Global
+# Global
 
 screen.Global= Global
 
@@ -46,8 +46,6 @@ value.TONEMAP.6=BSL
 
 option.FGrain= Film Grain
 option.FGrain.comment= Adds a grainy effect to the screen in areas with low light kind of like real life. §a Little to no performance impact.
-option.FGStrength= Film Grain Strength
-option.FGStrength.comment= Increase or decrease Film Grain intensity. §a Little to no performance impact.
 
 screen.lensGlobal= lens
 
@@ -132,19 +130,14 @@ option.waterFogDensityAbove= Abovewater Density
 option.waterFogDensityAbove.comment= Changes the fog density when viewed from above water.
 
 screen.swavingFoliage= Waving Plants
-option.wavingFoliage= All
+option.wavingFoliage= Foliage
 option.wavingFoliage.comment= Enables / Disables waving plants. §6 Moderate performance impact in forested areas.
-option.wavingGrasses = Grasses
-option.wavingDoublePlants = Tall Plants
-option.wavingCrops = Crops
-option.wavingFlowers = Flowers
-option.wavingSaplings = Saplings
-option.wavingMushrooms = Mushrooms
-option.wavingVines = Vines
 option.wavingLeaves= Leaves
 option.wavingLeaves.comment= Enables / Disables waving leaves. §6 Moderate performance impact in forested areas.
 option.wavingSpeed= Speed
 option.wavingSpeed.comment= Speed at which the plants / leaves sway.
+option.wavingIntensity= Intensity
+option.wavingIntensity.comment= How far the plants / leaves sway.
 
 screen.swaterRefraction= Refraction
 option.UNDERWATER_REFRACTION=Underwater Refractions
@@ -158,16 +151,13 @@ screen.motionblur= Motion Blur
 option.MOTION_BLUR=Motion Blur
 option.MOTION_BLUR.comment= Enables / Disables Motion blur. A popular effect from fps games that simulate your vision bluring as you quickly turn. §a Little to no performance impact.
 option.MOTION_BLUR_NOISE=Motion Blur Noise
-value.MOTION_BLUR_NOISE.1=Enabled
-value.MOTION_BLUR_NOISE.0=Disabled
 option.MOTION_BLUR_NOISE.comment= Adds noise to the blur.
 option.MOTION_BLUR_STRENGTH=Motion Blur Strength
 option.MOTION_BLUR_STRENGTH.comment= The intensity of the applied blur. Lower is more intense.
 
-option.NightDarknessLevel=Night Darkness
-option.NightDarknessLevel.comment=Makes nights darker, lower equals darker. §a Little to no performance impact.
 
-// Overworld
+
+# Overworld
 
 screen.Overworld= §a Overworld
 
@@ -210,12 +200,12 @@ option.OFOGG.comment= Changes the Green value of the fog color using RGBA color 
 option.OFOGB= §9Blue
 option.OFOGB.comment= Changes the Blue value of the fog color using RGBA color spectrum.
 option.OFOGI= Strength
-option.OFOGI.comment= Changes how thick the fog appears. Lower value is thicker.
+option.OFOGI.comment= Changes how thick the fog appears.
 option.HeightBasedFog=Height Based
 option.HeightBasedFog.comment= Makes fog more dense the further down in the world it is.
 
 
-// Nether
+# Nether
 
 screen.Nether= §c Nether
 
@@ -251,14 +241,12 @@ option.NDOF_FOCAL.comment= Size of the lens focus area.
 screen.netherRefraction= Heat Refraction
 option.NETHER_REFRACTION= Heat Refraction
 option.NETHER_REFRACTION.comment= Adds a refrection effect similar to being underwater to simulate the hot environment. §e Slight performance impact.
-value.NETHER_REFRACTION.0= Disabled
-value.NETHER_REFRACTION.1= Enabled
 option.NETHER_REFRACTION_AMOUNT= Refraction Intensity
 option.NETHER_REFRACTION_AMOUNT.comment= Changes the Intensity of the refraction effect.
 option.NETHER_REFRACTION_ANIMATION_SPEED= Refraction Speed
 option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the refraction effect.
 
-// End
+# End
 
 screen.End= §d End
 
@@ -274,7 +262,7 @@ option.EFOGG.comment= Changes the Green value of the fog color using RGBA color 
 option.EFOGB= §9Blue
 option.EFOGB.comment= Changes the Blue value of the fog color using RGBA color spectrum.
 option.EFOGI= Strength
-option.EFOGI.comment= Changes how thick the fog appears. Lower is thicker.
+option.EFOGI.comment= Changes how thick the fog appears.
 
 screen.Post_Process= Post Process
 screen.Waving_Blocks= Waving Blocks

@@ -1,11 +1,11 @@
 
-// translator: ArataKamikaze
-// note: i'm not sure if the translation is correct, if there's any problem please contact me
-// tradutor: ArataKamikaze
-// nota: não tenho certeza se a tradução está correta, se houver qualquer problema, por favor me contate
+# translator: ArataKamikaze
+# note: i'm not sure if the translation is correct, if there's any problem please contact me
+# tradutor: ArataKamikaze
+# nota: não tenho certeza se a tradução está correta, se houver qualquer problema, por favor me contate
 
 
-// Key
+# Key
 
 # §a Pouco ou nenhum impacto na performance.
 # §e Leve impacto na performance.
@@ -14,7 +14,7 @@
 # §4 Extremo impacto na performance.
 
 
-// Global
+# Global
 
 screen.Global= Global
 
@@ -155,7 +155,7 @@ option.MOTION_BLUR_STRENGTH.comment= A intensidade do desfoque aplicado. Menor �
 
 
 
-// Overworld
+# Overworld
 
 screen.Overworld= §a Overworld
 
@@ -200,7 +200,7 @@ option.OFOGI= Força
 option.OFOGI.comment= Quão densa é a neblina
 
 
-// Nether
+# Nether
 
 screen.Nether= §c Nether
 
@@ -241,7 +241,7 @@ option.NETHER_REFRACTION_AMOUNT.comment= Muda a intensidade do efeito de refraç
 option.NETHER_REFRACTION_ANIMATION_SPEED= Velocidade de refração
 option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Muda a velocidade da onda do efeito de refração.
 
-// End
+# End
 
 screen.End= §d End
 

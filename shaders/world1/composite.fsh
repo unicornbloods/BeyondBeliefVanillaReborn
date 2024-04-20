@@ -1,6 +1,5 @@
 #version 120
 
-	#define Global
 	#define End
 	#define fsh
 

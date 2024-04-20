@@ -2,8 +2,8 @@
 #ifdef fsh
 	#ifdef Global
 		//#define MOTION_BLUR
-		#define MOTION_BLUR_NOISE 1 //[0 1]
-		#define MOTION_BLUR_STRENGTH 25.0 //[0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 3.25 3.50 3.75 4.0 4.25 4.50 4.75 5.0 5.25 5.50 5.75 6.0 6.25 6.50 6.75 7.0 7.25 7.50 7.75 8.0]
+		#define MOTION_BLUR_NOISE
+		#define MOTION_BLUR_STRENGTH 3.0 //[0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0]
 
 		uniform sampler2D colortex0;
 		varying vec4 texcoord;
@@ -71,11 +71,14 @@
 
 				vec2 vel = clamp((curPosition - prevPosition).st * (1.0 / frameTime) * 0.003, vec2(-maxVel), vec2(maxVel));
 
-
-				float noise = mix(0.0, rand(texcoord.st), MOTION_BLUR_NOISE);
+				#ifdef MOTION_BLUR_NOISE
+					float noise = rand(texcoord.st);
+				#else
+					float noise = 0.0;
+				#endif
 
 				vec3 col = vec3(0.0);
-				int fSamples = (samples - 1) >> 1;
+				int fSamples = (samples - 1) / 2;
 
 				for (int i = -fSamples; i <= fSamples; ++i) {
 					vec2 coord = texcoord.st + vel * (i + noise) / MOTION_BLUR_STRENGTH;

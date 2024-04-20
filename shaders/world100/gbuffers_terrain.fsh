@@ -1,6 +1,6 @@
 #version 120
 
 	#define Global
-	#define vsh
+	#define fsh
 
 	#include "/program/gbuffers_terrain.glsl"

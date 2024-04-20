@@ -1,6 +1,5 @@
 //FXAA 3.11 from http://blog.simonrodriguez.fr/articles/30-07-2016_implementing_fxaa.html
-// const float quality[12] = float[12] (1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.5f, 2.0f, 2.0f, 2.0f, 2.0f, 4.0f, 8.0f);
-const float quality[15] = float[15] (1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.5f, 2.0f, 2.0f, 2.0f, 2.0f, 4.0f, 8.0f, 12.0, 18.0, 26.0);
+const float quality[12] = float[12] (1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.5f, 2.0f, 2.0f, 2.0f, 2.0f, 4.0f, 8.0f);
 
 float luma(vec3 color){
 	return dot(color,vec3(0.299, 0.587, 0.114));
@@ -12,7 +11,7 @@ vec3 fxaa311(vec3 color){
 	float edgeThresholdMin = 0.03125f;
 	float edgeThresholdMax = 0.0625f;
 	float subpixelQuality = 0.75f;
-	int iterations = 15;
+	int iterations = 12;
 	
 	vec2 view = 1.0f/vec2(viewWidth,viewHeight);
 	

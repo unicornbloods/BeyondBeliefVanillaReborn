@@ -1,20 +1,19 @@
 #version 120
 
-uniform sampler2D lightmap;
 uniform sampler2D texture;
 
-uniform vec4 entityColor;
-
-varying vec2 lmcoord;
 varying vec2 texcoord;
 varying vec4 glcolor;
+uniform vec3 fogColor;
 
 void main() {
 	vec4 color = texture2D(texture, texcoord) * glcolor;
-	color *= texture2D(lightmap, lmcoord);
 
-	if(entityColor.a > 0) color.r *= 1.5;
-
+	if(color.r < 0.1) {
+		// Different because Lotr handles sky weird.
+		color.a = 0;
+	}
+	
 /* DRAWBUFFERS:0 */
 	gl_FragData[0] = color; //gcolor
 }
