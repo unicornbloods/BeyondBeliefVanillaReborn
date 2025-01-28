@@ -7,7 +7,6 @@ I just mainly test on the latest version.
 
 Welcome to my new project! <br>
 This one is based around adding a little bit extra to vanilla Minecraft and doing so in a fully customizable way!! <br>
-If you have any bug or suggestions please shoot them over to <a href="https://gitlab.com/beyondbeliefshaders/vanillareborn/-/issues"> here. </a>
 
 <h2> Installation </h2>
 
