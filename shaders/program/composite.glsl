@@ -77,34 +77,11 @@
 			vec3 worldPos = feetPlayerPos + cameraPosition;
 			// end for fog
 
-			float depth = texture2D(depthtex0, newtc).r;
-			#ifdef waterFog
-				float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
-				matID *= 2.0; //back to the original range
-				if(isEyeInWater == 1) { // Underwater
-
-					#if waterFog == 0
-						vec3 WaterColor = fogColor;
-					#else
-						vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
-					#endif
-
-					color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
-					color = mix(color, WaterColor, clamp(length(viewPos) * waterFogDensity / far, 0.0, 1.0));
-
-				}
-
-				if(matID > 0.9 && matID < 1.5 && isEyeInWater == 0) { // Targetting water
-					color *= exp(-vec3(1.0, 0.2, 0.1) * (depth * 0.5));
-				}
-
-			#endif
-
 			// Main fog
+//			float depth0 = texture2D(depthtex0, texcoord).x;
+//			^ This isn't used?
 
-			float depth0 = texture2D(depthtex0, texcoord).x;
-
-			depth = texture2D(depthtex0, texcoord.xy).x;
+			float depth = texture2D(depthtex0, texcoord.xy).x;
 
 			#ifdef LBOFOG
 				if	(depth < 1.0) {
@@ -131,12 +108,40 @@
 						#endif
 					
 						color.rgb = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * clamp(FogIntensity, 0.0, 1.0)) - near * 17, 0.0, 1.0));
+
+					/* DRAWBUFFERS:0 */
+					gl_FragData[0] = vec4(color, 1.0); //gcolor
+					return;
 					}
 			#ifdef LBOFOG
 				}
 			#endif
 
-			//lava fog
+			// Water fog
+			depth = texture2D(depthtex0, newtc).r;
+			#ifdef waterFog
+			float matID = texture2D(colortex1, texcoord).x; // we stored it in the first component
+			matID *= 2.0; //back to the original range
+			if(isEyeInWater == 1) { // Underwater
+
+				#if waterFog == 0
+				vec3 WaterColor = fogColor;
+				#else
+				vec3 WaterColor = (vec3(waterRed, waterGreen, waterBlue) / 420);
+				#endif
+
+				color *= exp(-vec3(1.0, 0.2, 0.1) * depth);
+				color = mix(color, WaterColor, clamp(length(viewPos) * waterFogDensity / far, 0.0, 1.0));
+
+			}
+
+			if(matID > 0.9 && matID < 1.5 && isEyeInWater == 0) { // Targetting water
+				color *= exp(-vec3(1.0, 0.2, 0.1) * (depth * 0.5));
+			}
+
+			#endif
+
+			// Lava fog
 			if(isEyeInWater == 2) {
 				float depth = texture2D(depthtex0, newtc).r;
 

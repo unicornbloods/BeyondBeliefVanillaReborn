@@ -1,6 +1,6 @@
 #shaders/lang/en_us.lang
 
-// Key
+# Key
 
 # §a Little to no performance impact.
 # §e Slight performance impact.
@@ -9,7 +9,7 @@
 # §4 Extreme performance impact.
 
 
-// Global
+# Global
 
 screen.Global= Global
 
@@ -136,6 +136,8 @@ option.wavingLeaves= Leaves
 option.wavingLeaves.comment= Enables / Disables waving leaves. §6 Moderate performance impact in forested areas.
 option.wavingSpeed= Speed
 option.wavingSpeed.comment= Speed at which the plants / leaves sway.
+option.wavingIntensity= Intensity
+option.wavingIntensity.comment= How far the plants / leaves sway.
 
 screen.swaterRefraction= Refraction
 option.UNDERWATER_REFRACTION=Underwater Refractions
@@ -155,7 +157,7 @@ option.MOTION_BLUR_STRENGTH.comment= The intensity of the applied blur. Lower is
 
 
 
-// Overworld
+# Overworld
 
 screen.Overworld= §a Overworld
 
@@ -203,7 +205,7 @@ option.HeightBasedFog=Height Based
 option.HeightBasedFog.comment= Makes fog more dense the further down in the world it is.
 
 
-// Nether
+# Nether
 
 screen.Nether= §c Nether
 
@@ -244,7 +246,7 @@ option.NETHER_REFRACTION_AMOUNT.comment= Changes the Intensity of the refraction
 option.NETHER_REFRACTION_ANIMATION_SPEED= Refraction Speed
 option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Changes the wave speed of the refraction effect.
 
-// End
+# End
 
 screen.End= §d End
 

@@ -1,7 +1,7 @@
-// 14.05.2020
-// translator: fr0zert
+# 14.05.2020
+# translator: fr0zert
 
-// Key
+# Key
 
 # §a Little to no performance impact. // Нет влияния на производительность.
 # §e Slight performance impact. // Незначительное влияние на производительность.
@@ -9,7 +9,7 @@
 # §c High performance impact. // Высокое влияние на производительность.
 # §4 Extreme performance impact. // Экстремальное влияние на производительность.
 
-// Global
+# Global
 
 screen.Global= Общие настройки
 
@@ -142,7 +142,7 @@ option.MOTION_BLUR_STRENGTH.comment= Интенсивность применяе
 
 
 
-// Overworld
+# Overworld
 
 screen.Overworld= §a Настройки для верхнего мира
 
@@ -194,7 +194,7 @@ option.wavingLeaves.comment= Включает / выключает движен�
 option.wavingSpeed= Скорость
 option.wavingSpeed.comment= Скорость, с которой растения качаются.
 
-// Nether
+# Nether
 
 screen.Nether= §c Настройки для нижнего мира
 
@@ -235,7 +235,7 @@ option.NETHER_REFRACTION_AMOUNT.comment= Изменяет интенсивнос
 option.NETHER_REFRACTION_ANIMATION_SPEED= Скорость преломления
 option.NETHER_REFRACTION_ANIMATION_SPEED.comment= Изменяет скорость волны эффекта преломления.
 
-// End
+# End
 
 screen.End= §d Настройки для края
 

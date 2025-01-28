@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Film Grain intensity slider.
 - Added Support for 1.7.10 Streams mod.
 - Added nether biome fog color support.
+- Add support for LOTR mod
+- Add support for Pale Oak and Cherry forests
 
 ### Fixed
 
