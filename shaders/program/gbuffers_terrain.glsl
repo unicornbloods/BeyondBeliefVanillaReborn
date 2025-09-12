@@ -1,8 +1,8 @@
 #ifdef Global
 
-#ifdef fsh
+#include "/lib/rple.glsl"
 
-	#include "/lib/rple.glsl"
+#ifdef fsh
 
 	//#define Whiteworld
 
@@ -41,8 +41,6 @@
 	#define wavingIntensity 0.6//[0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0]
 
 	#define wavingLeaves //This option can cause performance hits in large forests.
-
-	#include "/lib/rple.glsl"
 
 	varying vec2 texcoord;
 	varying vec4 glcolor;
