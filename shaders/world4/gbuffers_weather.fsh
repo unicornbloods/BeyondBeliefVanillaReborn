@@ -1,13 +1,6 @@
 #version 120
 
-uniform sampler2D texture;
+#define Global
+#define fsh
 
-varying vec2 texcoord;
-varying vec4 glcolor;
-
-void main() {
-	vec4 color = texture2D(texture, texcoord) * glcolor;
-
-/* DRAWBUFFERS:0 */
-	gl_FragData[0] = color; //gcolor
-}
+#include "/program/gbuffers_weather.glsl"
