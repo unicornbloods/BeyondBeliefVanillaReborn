@@ -1,4 +1,4 @@
-//#define FGrain	
+//#define FGrain
 	#define FGStrength 0.035
 
 float depth0 = texture2D(depthtex0, texcoord).x;
