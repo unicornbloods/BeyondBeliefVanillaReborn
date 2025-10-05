@@ -56,7 +56,7 @@
 				return 2.0f * near * far / (far + near - (2.0f * texture2D(gdepthtex, coord).x - 1.0f) * (far - near));
 			}
 
-			float 	ExpToLinearDepth(in float depth){
+			float ExpToLinearDepth(in float depth){
 				return 2.0f * near * far / (far + near - (2.0f * depth - 1.0f) * (far - near));
 			}
 
@@ -99,17 +99,18 @@
 							#endif
 						#endif
 						// add blindness
-						FogIntensity = mix(FogIntensity, (FogIntensity * 0.1), blindness);
+						FogIntensity = clamp(mix(FogIntensity, (FogIntensity * 0.1), blindness), 0.0, 1.0);
 					
 						#if OFOG == 1
 							vec3 fogcolor = clamp((fogColor * mix(fogColor, (vec3(OFOGR, OFOGG, OFOGB) / 255), 1) * worldPos.y), 0.0, 1.0);
-						#else						
-								vec3 fogcolor = clamp((fogColor * worldPos.y), 0.0, 1.0);
+						#else
+							vec3 fogcolor = fogColor;
 						#endif
 					
-						color.rgb = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * clamp(FogIntensity, 0.0, 1.0)) - near * 17, 0.0, 1.0));
+						color.rgb = mix(color.rgb, fogcolor, clamp(length(viewPos) / (far * FogIntensity) - near * 15, 0.0, 1.0));
 
-					/* DRAWBUFFERS:0 */
+
+                /* DRAWBUFFERS:0 */
 					gl_FragData[0] = vec4(color, 1.0); //gcolor
 					return;
 					}
