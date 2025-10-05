@@ -10,12 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added RPLE Support.
+- Added support for 1.7.10 Streams mod.
 
 ### Fixed
 - Translucents not being processed in the nether.
 - Hand not being processed in the nether.
 - Night Eye being applied twice.
 - Weather not using lightmap.
+- Fog color being weird.
 
 ### Changed
 
