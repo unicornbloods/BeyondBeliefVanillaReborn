@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+### Fixed
+- TODO: make fog appear through translucents.
+- TODO: make waving water not break apart. gbuffers_water.glsl, float WavingWater function
+
+### Changed
+
+
+## [2.0.0_Dev8] - 2025-10-06
+
+### Added
 - Added RPLE Support.
 - Added support for 1.7.10 Streams mod.
 
@@ -18,9 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Night Eye being applied twice.
 - Weather not using lightmap.
 - Fog color being weird.
-
-### Changed
-
 
 ## [2.0.0_Dev7] - 2024-12-10
 
