@@ -28,5 +28,5 @@
         glcolor = gl_Color;
     }
 #endif
-z
+
 #endif
