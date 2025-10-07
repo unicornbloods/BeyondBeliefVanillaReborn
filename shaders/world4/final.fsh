@@ -1,6 +1,6 @@
 #version 120
 
-	#define Global
-	#define fsh
+#define Global
+#define fsh
 
-	#include "/program/final.glsl"
+#include "/program/final.glsl"

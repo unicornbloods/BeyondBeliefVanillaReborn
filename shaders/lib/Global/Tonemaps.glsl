@@ -1,4 +1,3 @@
-
 // Some parts taken from BSL with Tatsu's permission
 
 #define TONEMAP 1 //[1 2 3 4 5 6]
@@ -15,87 +14,87 @@
 
 
 vec3 BetterColors(in vec3 color) {
-	vec3 BetterColoredImage;
+    vec3 BetterColoredImage;
 
-	vec3 overExposed = color * 1.0;
+    vec3 overExposed = color * 1.0;
 
-	vec3 underExposed = color / 1.0;
+    vec3 underExposed = color / 1.0;
 
-	BetterColoredImage = mix(underExposed, overExposed, color);
+    BetterColoredImage = mix(underExposed, overExposed, color);
 
 
-	return BetterColoredImage;
+    return BetterColoredImage;
 }
 
 #if TONEMAP == 2
-	vec3 BOTWTonemap(vec3 color){
-		color = pow(color, vec3(1.0 / 1.2));
+    vec3 BOTWTonemap(vec3 color) {
+        color = pow(color, vec3(1.0 / 1.2));
 
-		float avg = (color.r + color.g + color.b) * 0.2;
-		float maxc = max(color.r, max(color.g, color.b));
+        float avg = (color.r + color.g + color.b) * 0.2;
+        float maxc = max(color.r, max(color.g, color.b));
 
-		float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
-		float weight = 1.0 + w * 0.18;
+        float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
+        float weight = 1.0 + w * 0.18;
 
-		return mix(vec3(maxc), color * 1.0, weight);
-	}
+        return mix(vec3(maxc), color * 1.0, weight);
+    }
 #elif TONEMAP == 3
-	vec3 BWTonemap(vec3 color){
-	
-	float avg = (color.r + color.g + color.b) * 0.2;
-	float maxc = max(color.r, max(color.g, color.b));
+    vec3 BWTonemap(vec3 color) {
 
-	float w = 1.0 - pow(1.0 - 1.0 * avg, 0.0);
-	float weight = 0.0 + w;
+        float avg = (color.r + color.g + color.b) * 0.2;
+        float maxc = max(color.r, max(color.g, color.b));
 
-	return mix(vec3(maxc), color * 1.0, weight);
-	}
+        float w = 1.0 - pow(1.0 - 1.0 * avg, 0.0);
+        float weight = 0.0 + w;
+
+        return mix(vec3(maxc), color * 1.0, weight);
+    }
 #elif TONEMAP == 4
-	vec3 NegativeTonemap(vec3 color){
-		color = pow(color, vec3(BetterColors(color) * 5.0));
+    vec3 NegativeTonemap(vec3 color) {
+        color = pow(color, vec3(BetterColors(color) * 5.0));
 
-		float avg = (color.r + color.g + color.b) * 0.2;
-		float maxc = max(color.r, max(color.g, color.b));
+        float avg = (color.r + color.g + color.b) * 0.2;
+        float maxc = max(color.r, max(color.g, color.b));
 
-		float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
-		float weight = 1.0 + w;
+        float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
+        float weight = 1.0 + w;
 
-		return mix(vec3(maxc), color * 1.0, weight);
-	}
+        return mix(vec3(maxc), color * 1.0, weight);
+    }
 #elif TONEMAP == 5
-	vec3 SpoopyTonemap(vec3 color){
+    vec3 SpoopyTonemap(vec3 color) {
 
-		float avg = (color.r + color.g + color.b) / 5.0;
-		float maxc = max(color.r, max(color.g, color.b));
+        float avg = (color.r + color.g + color.b) / 5.0;
+        float maxc = max(color.r, max(color.g, color.b));
 
-		float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
-		float weight = 0.0 + w;
+        float w = 1.0 - pow(1.0 - 1.0 * avg, 2.0);
+        float weight = 0.0 + w;
 
-		return mix(vec3(maxc), color * 0.0, weight);
-	}
+        return mix(vec3(maxc), color * 0.0, weight);
+    }
 #elif TONEMAP == 6
-	vec3 BSLTonemap(vec3 x){
-		x = TonemapExposure * x;
-		x = x / pow(pow(x,vec3(TonemapWhiteCurve)) + 1.0,vec3(1.0/TonemapWhiteCurve));
-		x = pow(x,mix(vec3(TonemapLowerCurve),vec3(TonemapUpperCurve),sqrt(x)));
-		return x;
-	}
+    vec3 BSLTonemap(vec3 x) {
+        x = TonemapExposure * x;
+        x = x / pow(pow(x, vec3(TonemapWhiteCurve)) + 1.0, vec3(1.0 / TonemapWhiteCurve));
+        x = pow(x, mix(vec3(TonemapLowerCurve), vec3(TonemapUpperCurve), sqrt(x)));
+        return x;
+    }
 
-	vec3 colorSaturation(vec3 x){
-		float grayv = (x.r + x.g + x.b) * 0.333;
-		float grays = grayv;
-		if (BSLSaturation < 1.0) grays = dot(x,vec3(0.299, 0.587, 0.114));
+    vec3 colorSaturation(vec3 x) {
+        float grayv = (x.r + x.g + x.b) * 0.333;
+        float grays = grayv;
+        if (BSLSaturation < 1.0) grays = dot(x, vec3(0.299, 0.587, 0.114));
 
-		float mn = min(x.r, min(x.g, x.b));
-		float mx = max(x.r, max(x.g, x.b));
-		float sat = (1.0-(mx-mn)) * (1.0-mx) * grayv * 5.0;
-		vec3 lightness = vec3((mn+mx)*0.5);
+        float mn = min(x.r, min(x.g, x.b));
+        float mx = max(x.r, max(x.g, x.b));
+        float sat = (1.0 - (mx - mn)) * (1.0 - mx) * grayv * 5.0;
+        vec3 lightness = vec3((mn + mx) * 0.5);
 
-		x = mix(x,mix(x,lightness,1.0-BSLVibrance),sat);
-		x = mix(x, lightness, (1.0-lightness)*(2.0-BSLVibrance)/2.0*abs(BSLVibrance-1.0));
+        x = mix(x, mix(x, lightness, 1.0 - BSLVibrance), sat);
+        x = mix(x, lightness, (1.0 - lightness) * (2.0 - BSLVibrance) / 2.0 * abs(BSLVibrance - 1.0));
 
-		return x * BSLSaturation - grays * (BSLSaturation - 1.0);
-	}
+        return x * BSLSaturation - grays * (BSLSaturation - 1.0);
+    }
 #endif
 
 

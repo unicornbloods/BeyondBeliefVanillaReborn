@@ -10,39 +10,39 @@
         #define CSG 0 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
         #define CSB 0 //[0.0 5.0 10.0 15.0 20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0 60.0 65.0 70.0 75.0 80.0 85.0 90.0 95.0 100.0 105.0 110.0 115.0 120.0 125.0 130.0 135.0 140.0 145.0 150.0 155.0 160.0 165.0 170.0 175.0 180.0 185.0 190.0 195.0 200.0 205.0 210.0 215.0 220.0 225.0 230.0 235.0 240.0 245.0 250.0 255.0]
 
-	#ifndef CSBOX
-		varying vec2 texcoord;
-		varying vec4 glcolor;
-	#endif
+    #ifndef CSBOX
+        varying vec2 texcoord;
+        varying vec4 glcolor;
+    #endif
 
-	void main() {
-		vec4 blockLightColor = blockLight();
+    void main() {
+        vec4 blockLightColor = blockLight();
 
-		#ifdef CSBOX
-			vec3 color = vec3(CSR, CSG, CSB) / 255;
-			/* DRAWBUFFERS:0 */
-			gl_FragData[0] = vec4(color, 1.0);
-		#else
-			vec4 color = blockLightColor * glcolor;
+        #ifdef CSBOX
+            vec3 color = vec3(CSR, CSG, CSB) / 255;
+            /* DRAWBUFFERS:0 */
+            gl_FragData[0] = vec4(color, 1.0);
+        #else
+            vec4 color = blockLightColor * glcolor;
 
-			/* DRAWBUFFERS:0 */
-			gl_FragData[0] = color; //colortex0
-		#endif
-	}
+            /* DRAWBUFFERS:0 */
+            gl_FragData[0] = color; //colortex0
+        #endif
+    }
 #endif
 
 #ifdef vsh
 
-	varying vec2 texcoord;
-	varying vec4 glcolor;
+    varying vec2 texcoord;
+    varying vec4 glcolor;
 
-	void main() {
-		setLightMapCoordinates();
+    void main() {
+        setLightMapCoordinates();
 
-		gl_Position = ftransform();
-		texcoord = (gl_TextureMatrix[0] * gl_MultiTexCoord0).xy;
-		glcolor = gl_Color;
-	}
+        gl_Position = ftransform();
+        texcoord = (gl_TextureMatrix[0] * gl_MultiTexCoord0).xy;
+        glcolor = gl_Color;
+    }
 #endif
 
 #endif

@@ -1,6 +1,6 @@
 #version 120
 
-	#define Global
-	#define fsh
+#define Global
+#define fsh
 
-	#include "/program/composite1.glsl"
+#include "/program/composite1.glsl"
