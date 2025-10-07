@@ -3,7 +3,7 @@ It will also make it way easier for me to help you with the information asked fo
 
 Minecraft version:
 
-Optifine version:
+Optifine / Iris / SwanSong version:
 
 Shader version:
 
