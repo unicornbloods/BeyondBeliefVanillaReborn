@@ -13,7 +13,8 @@
 
 		varying vec2 texcoord;
 		varying vec4 color;
-		uniform sampler2D texture;
+//		uniform sampler2D texture;
+        uniform sampler2D colortex0;
 
 		#ifdef Depth_of_Field
 
@@ -117,7 +118,7 @@
 				#endif
 
 				for ( int i = 0; i < 9; i++) {
-					color += texture2D(texture, texcoord.xy + hexBokeh[i]*pcoc*vec2(1.0,aspectRatio)).rgb;
+					color += texture2D(colortex0, texcoord.xy + hexBokeh[i]*pcoc*vec2(1.0,aspectRatio)).rgb;
 				}
 				
 				return color*0.11; //*0.11 = / 9
@@ -125,7 +126,7 @@
 		#endif
 
 		void main() {
-			vec4 tex = texture2D(texture, texcoord.xy)*color;
+			vec4 tex = texture2D(colortex0, texcoord.xy) * color;
 
 			#ifdef Depth_of_Field
 				float depth0 = texture2D(depthtex0, texcoord.xy).x;

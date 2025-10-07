@@ -9,11 +9,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+### Fixed
+- TODO: make fog appear through translucents.
+- TODO: make waving water not break apart. gbuffers_water.glsl, float WavingWater function
+
+### Changed
+
+
+## [2.0.0_Dev8] - 2025-10-06
+
+### Added
+- Added RPLE Support.
+- Added support for 1.7.10 Streams mod.
+
+### Fixed
+- Translucents not being processed in the nether.
+- Hand not being processed in the nether.
+- Night Eye being applied twice.
+- Weather not using lightmap.
+- Fog color being weird.
+
+## [2.0.0_Dev7] - 2024-12-10
+
+### Added
+- Added Cherry trees
+- Added Pale Oak trees
+
+## [2.0.0_Dev6] - 2024-02-01
+
+### Added
+- Added support for LOTR mod and a few random fixes
+
+## [2.0.0_Dev5] - 2023-04-22
+
+### Added
 - Added Film Grain intensity slider.
 - Added Support for 1.7.10 Streams mod.
 - Added nether biome fog color support.
-- Add support for LOTR mod
-- Add support for Pale Oak and Cherry forests
 
 ### Fixed
 
@@ -29,7 +62,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Extended the values for Motion Blur, so it can be less intense.
 - Split all waving foliage to their own toggles.
 - Make fog underwater thicker during rain.
-
 
 ## [1.5.7] - 2022-06-13
 
