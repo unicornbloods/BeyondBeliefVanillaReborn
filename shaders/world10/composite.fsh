@@ -1,6 +1,6 @@
 #version 120
 
-	#define Beneath
-	#define fsh
+#define Beneath
+#define fsh
 
-	#include "/program/composite.glsl"
+#include "/program/composite.glsl"

@@ -5,9 +5,9 @@ varying vec4 color;
 
 void main() {
 
-	gl_Position = ftransform();
+    gl_Position = ftransform();
 
-	texcoord = (gl_MultiTexCoord0).xy;
+    texcoord = (gl_MultiTexCoord0).xy;
 
-	color = gl_Color;
+    color = gl_Color;
 }
